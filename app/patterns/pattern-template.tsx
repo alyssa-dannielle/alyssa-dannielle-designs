@@ -1,5 +1,4 @@
-
-export default function HeroHat() {
+export default function PatternName() {
     return (
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         
