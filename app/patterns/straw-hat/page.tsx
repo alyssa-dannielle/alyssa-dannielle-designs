@@ -7,7 +7,7 @@ export default function PatternName() {
             <h2>A FREE Testing Crochet Pattern</h2>
             <p>This page may contain affiliate links - click here to read more</p>
             <br />
-            <h3></h3>
+            
         </div>
         
   
