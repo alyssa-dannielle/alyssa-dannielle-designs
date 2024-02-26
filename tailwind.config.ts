@@ -16,7 +16,7 @@ const config: Config = {
         lg: "984px",
         xl: "1240px",
         //2xl: "1300px",
-      }
+      },
     },
     borderColor: {
       default: "#E5E7EB"
