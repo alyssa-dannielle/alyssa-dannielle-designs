@@ -12,9 +12,7 @@ export default function DrinkKoozie() {
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
       <article className="max-w-4xl w-full">
-        <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2">
-          Drink Koozie
-        </h1>
+        <h1 className={styles.patternTitle}>Drink Koozie</h1>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
           Crochet Test Pattern
         </h2>
