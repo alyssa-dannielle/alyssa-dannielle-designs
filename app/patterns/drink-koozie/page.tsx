@@ -14,7 +14,7 @@ export default function DrinkKoozie() {
       <article className={styles.patternArticleContainer}>
         <h1 className={styles.patternTitle}>Drink Koozie</h1>
         <h2 className={styles.patternSubtitle}>Crochet Test Pattern</h2>
-        <p className={styles.patternTermsAndAuthor}>
+        <p className={`dark:text-gray-300 ${styles.patternTermsAndAuthor}`}>
           Written in US Terms by Alyssa Dannielle
         </p>
         <p className={styles.patternText}>
@@ -62,7 +62,11 @@ export default function DrinkKoozie() {
               <span className="flex-1">
                 With 2 strands of yarn, work 8 hdc in a magic ring
               </span>
-              <span className={styles.patternStitchCount}>... 8 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${`dark:text-gray-400 ${styles.patternStitchCount}`}`}
+              >
+                ... 8 stitches
+              </span>
             </div>
           </li>
           <li>
@@ -70,7 +74,11 @@ export default function DrinkKoozie() {
               <span className="flex-1">
                 Continuing around, work 1 hdcInc in each stitch around to end
               </span>
-              <span className={styles.patternStitchCount}>... 16 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${`dark:text-gray-400 ${styles.patternStitchCount}`}`}
+              >
+                ... 16 stitches
+              </span>
             </div>
           </li>
           <li>
@@ -80,7 +88,11 @@ export default function DrinkKoozie() {
                 in following stitch{"}"} repeat instructions inside {"{"}braces
                 {"}"} around to end
               </span>
-              <span className={styles.patternStitchCount}>... 24 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${`dark:text-gray-400 ${styles.patternStitchCount}`}`}
+              >
+                ... 24 stitches
+              </span>
             </div>
           </li>
         </ol>
@@ -93,7 +105,9 @@ export default function DrinkKoozie() {
                 skip 8 hdc{"}"} repeat instructions inside {"{"}braces{"}"} one
                 more time to end
               </span>
-              <span className={styles.patternStitchCount}>
+              <span
+                className={`dark:text-gray-400 ${styles.patternStitchCount}`}
+              >
                 ... 8 stitches, 16 chains
               </span>
             </div>
@@ -105,7 +119,11 @@ export default function DrinkKoozie() {
                 in chain space{"}"} repeat instruction inside {"{"}braces{"}"}{" "}
                 one more time to end
               </span>
-              <span className={styles.patternStitchCount}>... 24 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${styles.patternStitchCount}`}
+              >
+                ... 24 stitches
+              </span>
             </div>
           </li>
         </ol>
@@ -116,7 +134,11 @@ export default function DrinkKoozie() {
               <span className="flex-1">
                 Continuing around, work 1 hdc in each stitch around
               </span>
-              <span className={styles.patternStitchCount}>... 24 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${styles.patternStitchCount}`}
+              >
+                ... 24 stitches
+              </span>
             </div>
           </li>
           <li>
@@ -124,7 +146,11 @@ export default function DrinkKoozie() {
               <span className="flex-1">
                 Continuing around, repeat the previous round to desired height
               </span>
-              <span className={styles.patternStitchCount}>... 24 stitches</span>
+              <span
+                className={`dark:text-gray-400 ${styles.patternStitchCount}`}
+              >
+                ... 24 stitches
+              </span>
             </div>
           </li>
           <li>

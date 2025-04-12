@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mt-8 border-t pt-4 text-sm text-gray-600 text-center">
+    <footer className="mt-8 border-t pt-4 text-sm text-gray-600 text-center dark:text-gray-400">
       <p>
         © {new Date().getFullYear()} alyssadannielle.design - All rights
         reserved.
