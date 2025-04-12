@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "../../layout/footer";
+import styles from "../pattern.module.css";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
