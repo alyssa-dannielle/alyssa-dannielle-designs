@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroSection from "./home/HeroSection";
+import Footer from "./layout/footer";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           </button>
         </Link>
       </div>
+      <Footer />
     </>
   );
 }
