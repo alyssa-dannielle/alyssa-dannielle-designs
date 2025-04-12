@@ -14,7 +14,10 @@ const Header = (props: Props) => {
       </div>
       <span className="p-5">
         <button>
-          <FontAwesomeIcon icon={faSun} className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+          <FontAwesomeIcon
+            icon={faMoon}
+            className="w-3.5 h-3.5 sm:w-5 sm:h-5"
+          />
         </button>
       </span>
     </div>
