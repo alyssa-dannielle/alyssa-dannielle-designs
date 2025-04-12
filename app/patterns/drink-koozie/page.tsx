@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
   description:
@@ -21,13 +23,13 @@ export default function DrinkKoozie() {
           Hi and thanks for checking out my drink koozie crochet pattern!
           Currently this pattern contains written instructions only. Keep
           checking back while i continue to add to this pattern based on tester
-          feedback. Interested in becoming a pattern tester? DM me on{" "}
-          <a
+          feedback. To leave your feedback, please fill out{" "}
+          <Link
             className="text-blue-600"
-            href="https://www.instagram.com/alyssadannielle.design"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdQM8cCneOQsnqAGG5sEcVOmwl5F4ZJVaNQ-LMNYLtjTM4KEQ/viewform?usp=preview"
           >
-            Instagram!
-          </a>
+            this questionnaire!
+          </Link>
         </p>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
           Supplies Needed:
@@ -62,16 +64,18 @@ export default function DrinkKoozie() {
         </h3>
         <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
           <li>
-            <div className="flex flex-row justify-between items-center">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
               <span className="flex-1">
                 With 2 strands of yarn, work 8 hdc in a magic ring
               </span>
-              <span className="text-gray-600 italic ml-4">... 8 stitches</span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 8 stitches
+              </span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col w-full sm:flex-row sm:justify-between sm:items-center">
-              <span className="sm:flex-1">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
                 Continuing around, work 1 hdcInc in each stitch around to end
               </span>
               <span className="text-gray-600 italic self-end sm:ml-4">
@@ -79,8 +83,100 @@ export default function DrinkKoozie() {
               </span>
             </div>
           </li>
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Continuing around, {"{"}work 1 hdc in next stitch and 1 hdcInc
+                in following stitch{"}"} repeat instructions inside {"{"}braces
+                {"}"} around to end
+              </span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 24 stitches
+              </span>
+            </div>
+          </li>
+        </ol>
+        <h3 className="text-lg sm:text-xl mb:text-2xl font-medium mb-3">
+          Opening:
+        </h3>
+        <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Continuing around, {"{"}work 1 hdc in next 4 stitches, ch 8,
+                skip 8 hdc{"}"} repeat instructions inside {"{"}braces{"}"} one
+                more time to end
+              </span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 8 stitches, 16 chains
+              </span>
+            </div>
+          </li>
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Continuing around, {"{"}work 1 hdc in next 4 stitches and 8 hdc
+                in chain space{"}"} repeat instruction inside {"{"}braces{"}"}{" "}
+                one more time to end
+              </span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 24 stitches
+              </span>
+            </div>
+          </li>
+        </ol>
+        <h3 className="text-lg sm:text-xl mb:text-2xl font-medium mb-3">
+          Body:
+        </h3>
+        <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Continuing around, work 1 hdc in each stitch around
+              </span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 24 stitches
+              </span>
+            </div>
+          </li>
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Continuing around, repeat the previous round to desired height
+              </span>
+              <span className="text-gray-600 italic self-end sm:ml-4">
+                ... 24 stitches
+              </span>
+            </div>
+          </li>
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                (optional) If your final row ends in the middle of the koozie
+                and/or if you’d like a less abrupt finish, work single crochets
+                to one side of koozie before finishing off
+              </span>
+            </div>
+          </li>
+          <li>
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <span className="flex-1">
+                Finish off (optional invisible finish) and weave in the tails.
+              </span>
+            </div>
+          </li>
         </ol>
       </article>
+      <footer className="mt-8 border-t pt-4 text-sm text-gray-600 text-center">
+        <p>
+          © {new Date().getFullYear()} alyssadannielle.design - All rights
+          reserved.
+        </p>
+        <p className="mt-2">
+          This pattern is for personal use only. Do not redistribute, sell, or
+          share this pattern.
+        </p>
+      </footer>
     </main>
   );
 }
