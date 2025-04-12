@@ -8,18 +8,20 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="border-b flex justify-between">
-      <div className="p-5">
-        <Link href="/">AlyssaDannielle.Design</Link>
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
+      <div className="border-b flex justify-between">
+        <div className="p-5">
+          <Link href="/">AlyssaDannielle.Design</Link>
+        </div>
+        <span className="p-5">
+          <button>
+            <FontAwesomeIcon
+              icon={faMoon}
+              className="w-3.5 h-3.5 sm:w-5 sm:h-5"
+            />
+          </button>
+        </span>
       </div>
-      <span className="p-5">
-        <button>
-          <FontAwesomeIcon
-            icon={faMoon}
-            className="w-3.5 h-3.5 sm:w-5 sm:h-5"
-          />
-        </button>
-      </span>
     </div>
   );
 };
