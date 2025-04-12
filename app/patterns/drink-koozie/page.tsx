@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Footer from "../../layout/footer";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
@@ -167,16 +168,7 @@ export default function DrinkKoozie() {
           </li>
         </ol>
       </article>
-      <footer className="mt-8 border-t pt-4 text-sm text-gray-600 text-center">
-        <p>
-          © {new Date().getFullYear()} alyssadannielle.design - All rights
-          reserved.
-        </p>
-        <p className="mt-2">
-          This pattern is for personal use only. Do not redistribute, sell, or
-          share this pattern.
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
