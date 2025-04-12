@@ -26,6 +26,8 @@ export default function DrinkKoozie() {
           checking back while i continue to add to this pattern based on tester
           feedback. To leave your feedback, please fill out{" "}
           <Link
+            target="_blank"
+            rel="noreferrer"
             className="text-blue-600"
             href="https://docs.google.com/forms/d/e/1FAIpQLSdQM8cCneOQsnqAGG5sEcVOmwl5F4ZJVaNQ-LMNYLtjTM4KEQ/viewform?usp=preview"
           >
