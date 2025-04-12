@@ -8,8 +8,8 @@ export default function Footer() {
         reserved.
       </p>
       <p className="mt-2">
-        This pattern is for personal use only. Do not redistribute, sell, or
-        share this pattern.
+        For personal use only. Do not redistribute, sell, or share patterns or
+        content from this site.
       </p>
     </footer>
   );
