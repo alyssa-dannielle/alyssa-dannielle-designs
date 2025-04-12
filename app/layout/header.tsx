@@ -1,5 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
@@ -9,8 +12,11 @@ const Header = (props: Props) => {
       <div className="p-5">
         <Link href="/">AlyssaDannielle.Design</Link>
       </div>
-      {/* <div className="text-4xl px-2 py-4">LOGO</div>
-      <button className="text-white bg-black px-4 py-4">Sign In</button> */}
+      <span className="p-5">
+        <button>
+          <FontAwesomeIcon icon={faSun} className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+        </button>
+      </span>
     </div>
   );
 };
