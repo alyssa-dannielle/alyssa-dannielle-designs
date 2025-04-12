@@ -1,10 +1,10 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx,css}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx,css}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx,css}",
   ],
   theme: {
     extend: {},
@@ -19,9 +19,9 @@ const config: Config = {
       },
     },
     borderColor: {
-      default: "#E5E7EB"
+      default: "#E5E7EB",
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

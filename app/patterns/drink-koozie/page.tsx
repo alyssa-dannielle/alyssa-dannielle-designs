@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "../../layout/footer";
+import styles from "../pattern.module.css";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
@@ -10,17 +11,13 @@ export const metadata = {
 export default function DrinkKoozie() {
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
-      <article className="max-w-4xl w-full">
-        <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2">
-          Drink Koozie
-        </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
-          Crochet Test Pattern
-        </h2>
-        <p className="text-sm sm:text-md md:text-lg text-gray-700 mb-4">
+      <article className={styles.patternArticleContainer}>
+        <h1 className={styles.patternTitle}>Drink Koozie</h1>
+        <h2 className={styles.patternSubtitle}>Crochet Test Pattern</h2>
+        <p className={styles.patternTermsAndAuthor}>
           Written in US Terms by Alyssa Dannielle
         </p>
-        <p className="text-sm sm:text-md md:text-lg mb-4">
+        <p className={styles.patternText}>
           Hi and thanks for checking out my drink koozie crochet pattern!
           Currently this pattern contains written instructions only. Keep
           checking back while i continue to add to this pattern based on tester
@@ -34,10 +31,8 @@ export default function DrinkKoozie() {
             this questionnaire!
           </Link>
         </p>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
-          Supplies Needed:
-        </h2>
-        <ul className="list-disc space-y-2 text-sm sm:text-md md:text-lg ml-6">
+        <h2 className={styles.patternSectionHeading}>Supplies Needed:</h2>
+        <ul className={styles.patternList}>
           <li>
             ~50g (approx 90 yds) medium weight yarn (I used Red Heart Super
             Saver) any color
@@ -48,10 +43,10 @@ export default function DrinkKoozie() {
           <li className="ml-6">Scissors</li>
           <li className="ml-6">Tapestry needle (optional)</li>
         </ul>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
+        <h2 className={styles.patternSectionHeading}>
           Stitches & Techniques Used:
         </h2>
-        <ul className="list-disc space-y-2 text-sm sm:text-md md:text-lg ml-6">
+        <ul className={styles.patternList}>
           <li>Magic ring</li>
           <li>Chain - ch</li>
           <li>Half double crochet - hdc</li>
@@ -59,101 +54,81 @@ export default function DrinkKoozie() {
           <li>Single crochet - sc (optional)</li>
           <li>Invisible finish off (optional)</li>
         </ul>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
-          Instructions:
-        </h2>
-        <h3 className="text-lg sm:text-xl mb:text-2xl font-medium mb-3">
-          Base:
-        </h3>
-        <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
+        <h2 className={styles.patternSectionHeading}>Instructions:</h2>
+        <h3 className={styles.patternSubsectionHeading}>Base:</h3>
+        <ol className={styles.patternStepSet}>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 With 2 strands of yarn, work 8 hdc in a magic ring
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 8 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 8 stitches</span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, work 1 hdcInc in each stitch around to end
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 16 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 16 stitches</span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, {"{"}work 1 hdc in next stitch and 1 hdcInc
                 in following stitch{"}"} repeat instructions inside {"{"}braces
                 {"}"} around to end
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 24 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 24 stitches</span>
             </div>
           </li>
         </ol>
-        <h3 className="text-lg sm:text-xl mb:text-2xl font-medium mb-3">
-          Opening:
-        </h3>
-        <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
+        <h3 className={styles.patternSubsectionHeading}>Opening:</h3>
+        <ol className={styles.patternStepSet}>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, {"{"}work 1 hdc in next 4 stitches, ch 8,
                 skip 8 hdc{"}"} repeat instructions inside {"{"}braces{"}"} one
                 more time to end
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
+              <span className={styles.patternStitchCount}>
                 ... 8 stitches, 16 chains
               </span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, {"{"}work 1 hdc in next 4 stitches and 8 hdc
                 in chain space{"}"} repeat instruction inside {"{"}braces{"}"}{" "}
                 one more time to end
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 24 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 24 stitches</span>
             </div>
           </li>
         </ol>
-        <h3 className="text-lg sm:text-xl mb:text-2xl font-medium mb-3">
-          Body:
-        </h3>
-        <ol className="list-decimal space-y-4 text-sm sm:text-md md:text-lg ml-6">
+        <h3 className={styles.patternSubsectionHeading}>Body:</h3>
+        <ol className={styles.patternStepSet}>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, work 1 hdc in each stitch around
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 24 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 24 stitches</span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Continuing around, repeat the previous round to desired height
               </span>
-              <span className="text-gray-600 italic self-end sm:ml-4">
-                ... 24 stitches
-              </span>
+              <span className={styles.patternStitchCount}>... 24 stitches</span>
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 (optional) If your final row ends in the middle of the koozie
                 and/or if you’d like a less abrupt finish, work single crochets
@@ -162,7 +137,7 @@ export default function DrinkKoozie() {
             </div>
           </li>
           <li>
-            <div className="flex flex-col sm:flex-row justify-between items-center">
+            <div className={styles.patternStep}>
               <span className="flex-1">
                 Finish off (optional invisible finish) and weave in the tails.
               </span>
