@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "Browse and test free crochet patterns!",
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
   },
 };
 
