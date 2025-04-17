@@ -16,9 +16,12 @@ const HeroSection = (props: Props) => {
           priority
         />
       </div>
-      <h1 className="text-2xl sm:text-4xl md:text-6xl mt-8 text-center">
+      <h1 className="tracking-tight text-2xl sm:text-4xl md:text-6xl mt-8 text-center">
         Crochet Pattern Testing
       </h1>
+      <p className="tracking-tight text-sm font-light sm:text-base md:text-lg mt-2 text-center">
+        bc that&apos;s what we&apos;re doing rn
+      </p>
     </section>
   );
 };
