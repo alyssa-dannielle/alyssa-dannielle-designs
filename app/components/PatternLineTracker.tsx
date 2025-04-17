@@ -53,11 +53,11 @@ const PatternLineTracker = () => {
         setPosition(relativePosition);
         localStorage.setItem(
           'patternLinePosition',
-          relativePosition.toString()
+          relativePosition.toString(),
         );
       }
     },
-    [isDragging]
+    [isDragging],
   );
 
   const handleEnd = () => {
