@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import styles from "./PatternLineTracker.module.css";
 
 const PatternLineTracker = () => {
   const [position, setPosition] = useState(0);
@@ -8,7 +9,7 @@ const PatternLineTracker = () => {
 
   useEffect(() => {
     // Load saved position from localStorage
-    const savedPosition = localStorage.getItem('patternLinePosition');
+    const savedPosition = localStorage.getItem("patternLinePosition");
     if (savedPosition) {
       setPosition(parseInt(savedPosition));
     }
@@ -22,7 +23,7 @@ const PatternLineTracker = () => {
     if (isDragging) {
       const newPosition = e.clientY;
       setPosition(newPosition);
-      localStorage.setItem('patternLinePosition', newPosition.toString());
+      localStorage.setItem("patternLinePosition", newPosition.toString());
     }
   };
 
@@ -32,28 +33,20 @@ const PatternLineTracker = () => {
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
     }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isDragging]);
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        left: 0,
-        top: position,
-        width: '100%',
-        height: '2px',
-        backgroundColor: 'rgba(255, 99, 71, 0.5)',
-        cursor: 'row-resize',
-        zIndex: 1000,
-      }}
+      className={styles.lineTracker}
+      style={{ top: position }}
       onMouseDown={handleMouseDown}
     />
   );
