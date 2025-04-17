@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-regular-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
