@@ -1,0 +1,48 @@
+.lineTracker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1.25rem; /* Changed from 20px to better match text line height */
+  background-color: rgba(64, 224, 208, 0.5);
+  cursor: row-resize;
+  z-index: 1000;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add media query for desktop view */
+@media (min-width: 768px) {
+  .lineTracker {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+}
+
+.lineTracker:hover {
+  background-color: rgba(64, 224, 208, 0.7);
+}
+
+.helpText {
+  color: #1a1a1a; /* Darker text for light mode */
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  user-select: none;
+}
+
+:global(.dark) .helpText {
+  color: #ffffff;
+  text-shadow: 0 0 2px black;
+}
+
+.patternContainer {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  margin: 1rem 0;
+  overflow: visible;
+}
