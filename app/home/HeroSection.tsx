@@ -20,7 +20,7 @@ const HeroSection = (props: Props) => {
         Crochet Pattern Testing
       </h1>
       <p className="tracking-tight text-sm font-light sm:text-base md:text-lg mt-2 text-center">
-        bc that &apos;s what we&apos;re doing rn
+        bc that&apos;s what we&apos;re doing rn
       </p>
     </section>
   );
