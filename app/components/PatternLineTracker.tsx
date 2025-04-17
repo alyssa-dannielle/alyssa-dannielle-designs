@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import type {
+  MouseEvent as ReactMouseEvent,
+  TouchEvent as ReactTouchEvent,
+} from "react";
 import styles from "./PatternLineTracker.module.css";
 
 const PatternLineTracker = () => {
@@ -14,20 +18,19 @@ const PatternLineTracker = () => {
     }
   }, []);
 
-  const handleStart = (e: MouseEvent | TouchEvent) => {
+  const handleStart = (e: ReactMouseEvent | ReactTouchEvent) => {
     e.preventDefault();
     setIsDragging(true);
     // Prevent text selection while dragging
-    document.body.style.userSelect = 'none';
+    document.body.style.userSelect = "none";
   };
 
   const handleMove = useCallback(
     (e: MouseEvent | TouchEvent) => {
       if (isDragging) {
         e.preventDefault();
-        const newPosition = 'touches' in e 
-          ? e.touches[0].clientY 
-          : (e as MouseEvent).clientY;
+        const newPosition =
+          "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
         setPosition(newPosition);
         localStorage.setItem("patternLinePosition", newPosition.toString());
       }
@@ -38,7 +41,7 @@ const PatternLineTracker = () => {
   const handleEnd = () => {
     setIsDragging(false);
     // Re-enable text selection
-    document.body.style.userSelect = '';
+    document.body.style.userSelect = "";
   };
 
   useEffect(() => {
@@ -61,8 +64,8 @@ const PatternLineTracker = () => {
     <div
       className={styles.lineTracker}
       style={{ top: position }}
-      onMouseDown={handleStart}
-      onTouchStart={handleStart}
+      onMouseDown={handleStart as (e: ReactMouseEvent) => void}
+      onTouchStart={handleStart as (e: ReactTouchEvent) => void}
     />
   );
 };
