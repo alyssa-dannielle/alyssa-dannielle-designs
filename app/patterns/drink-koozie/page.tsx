@@ -3,6 +3,7 @@ import Footer from "../../layout/footer";
 import styles from "../pattern.module.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import PatternNavigation from "../../../components/PatternNavigation";
+import BackToTopButton from "../../../components/BackToTopButton";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
@@ -21,7 +22,7 @@ export default function DrinkKoozie() {
   ];
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
-      <div className="flex gap-8 w-full max-w-7xl">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-7xl">
         <PatternNavigation sections={patternSections} />
         <article className={styles.patternArticleContainer}>
           <h1 className={styles.patternTitle}>Drink Koozie</h1>
@@ -32,7 +33,7 @@ export default function DrinkKoozie() {
           <p className={styles.patternText}>
             Hi and thanks for checking out my drink koozie crochet pattern!
             Currently this pattern contains written instructions only. Keep
-            checking back while i continue to add to this pattern based on
+            checking back while I continue to add to this pattern based on
             tester feedback. To leave your feedback, please fill out{" "}
             <Link
               target="_blank"
@@ -44,7 +45,10 @@ export default function DrinkKoozie() {
             </Link>
           </p>
           <h2 id="supplies" className={styles.patternSectionHeading}>
-            Supplies Needed:
+            <span className="flex items-center gap-2">
+              Supplies Needed:
+              <BackToTopButton />
+            </span>
           </h2>
           <ul className={styles.patternList}>
             <li>
@@ -58,7 +62,10 @@ export default function DrinkKoozie() {
             <li className="ml-6">Tapestry needle (optional)</li>
           </ul>
           <h2 id="stitches" className={styles.patternSectionHeading}>
-            Stitches & Techniques Used:
+            <span className="flex items-center gap-2">
+              Stitches & Techniques Used:
+              <BackToTopButton />
+            </span>
           </h2>
           <ul className={styles.patternList}>
             <li>Magic ring</li>
@@ -69,10 +76,16 @@ export default function DrinkKoozie() {
             <li>Invisible finish off (optional)</li>
           </ul>
           <h2 id="instructions" className={styles.patternSectionHeading}>
-            Instructions:
+            <span className="flex items-center gap-2">
+              Instructions:
+              <BackToTopButton />
+            </span>
           </h2>
           <h3 id="base" className={styles.patternSubsectionHeading}>
-            Base:
+            <span className="flex items-center gap-2">
+              Base:
+              <BackToTopButton />
+            </span>
           </h3>
           <ol className={styles.patternStepSet}>
             <li>
@@ -116,7 +129,10 @@ export default function DrinkKoozie() {
             </li>
           </ol>
           <h3 id="opening" className={styles.patternSubsectionHeading}>
-            Opening:
+            <span className="flex items-center gap-2">
+              Opening:
+              <BackToTopButton />
+            </span>
           </h3>
           <ol className={styles.patternStepSet}>
             <li>
@@ -149,7 +165,10 @@ export default function DrinkKoozie() {
             </li>
           </ol>
           <h3 id="body" className={styles.patternSubsectionHeading}>
-            Body:
+            <span className="flex items-center gap-2">
+              Body:
+              <BackToTopButton />
+            </span>
           </h3>
           <ol className={styles.patternStepSet}>
             <li>

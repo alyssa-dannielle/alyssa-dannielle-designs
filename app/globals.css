@@ -19,6 +19,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 2rem;
+    scroll-padding-top: 300px;
   }
 }
