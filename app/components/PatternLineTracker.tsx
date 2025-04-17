@@ -26,6 +26,15 @@ const PatternLineTracker = () => {
 
   const handleStart = (e: ReactMouseEvent | ReactTouchEvent) => {
     e.preventDefault();
+    if (containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const clientY =
+        'touches' in e ? e.touches[0].clientY : (e as ReactMouseEvent).clientY;
+      const relativePosition = clientY - containerRect.top;
+
+      setPosition(relativePosition);
+      localStorage.setItem('patternLinePosition', relativePosition.toString());
+    }
     setIsDragging(true);
     setShowHelp(false);
     localStorage.setItem('patternLineUsed', 'true');
@@ -39,7 +48,7 @@ const PatternLineTracker = () => {
         const containerRect = containerRef.current.getBoundingClientRect();
         const clientY =
           'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
-        const relativePosition = clientY - containerRect.top + window.scrollY;
+        const relativePosition = clientY - containerRect.top;
 
         setPosition(relativePosition);
         localStorage.setItem(
