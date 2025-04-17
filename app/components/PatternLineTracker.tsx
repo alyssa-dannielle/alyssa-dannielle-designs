@@ -8,21 +8,26 @@ const PatternLineTracker = () => {
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    // Load saved position from localStorage
     const savedPosition = localStorage.getItem("patternLinePosition");
     if (savedPosition) {
       setPosition(parseInt(savedPosition));
     }
   }, []);
 
-  const handleMouseDown = () => {
+  const handleStart = (e: MouseEvent | TouchEvent) => {
+    e.preventDefault();
     setIsDragging(true);
+    // Prevent text selection while dragging
+    document.body.style.userSelect = 'none';
   };
 
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
+  const handleMove = useCallback(
+    (e: MouseEvent | TouchEvent) => {
       if (isDragging) {
-        const newPosition = e.clientY;
+        e.preventDefault();
+        const newPosition = 'touches' in e 
+          ? e.touches[0].clientY 
+          : (e as MouseEvent).clientY;
         setPosition(newPosition);
         localStorage.setItem("patternLinePosition", newPosition.toString());
       }
@@ -30,27 +35,34 @@ const PatternLineTracker = () => {
     [isDragging]
   );
 
-  const handleMouseUp = () => {
+  const handleEnd = () => {
     setIsDragging(false);
+    // Re-enable text selection
+    document.body.style.userSelect = '';
   };
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("mousemove", handleMove);
+      window.addEventListener("mouseup", handleEnd);
+      window.addEventListener("touchmove", handleMove, { passive: false });
+      window.addEventListener("touchend", handleEnd);
     }
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mouseup", handleEnd);
+      window.removeEventListener("touchmove", handleMove);
+      window.removeEventListener("touchend", handleEnd);
     };
-  }, [isDragging, handleMouseMove]);
+  }, [isDragging, handleMove]);
 
   return (
     <div
       className={styles.lineTracker}
       style={{ top: position }}
-      onMouseDown={handleMouseDown}
+      onMouseDown={handleStart}
+      onTouchStart={handleStart}
     />
   );
 };
