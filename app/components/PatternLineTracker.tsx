@@ -10,18 +10,24 @@ import styles from "./PatternLineTracker.module.css";
 const PatternLineTracker = () => {
   const [position, setPosition] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [showHelp, setShowHelp] = useState(true);
 
   useEffect(() => {
     const savedPosition = localStorage.getItem("patternLinePosition");
+    const hasUsedBefore = localStorage.getItem("patternLineUsed");
     if (savedPosition) {
       setPosition(parseInt(savedPosition));
+    }
+    if (hasUsedBefore) {
+      setShowHelp(false);
     }
   }, []);
 
   const handleStart = (e: ReactMouseEvent | ReactTouchEvent) => {
     e.preventDefault();
     setIsDragging(true);
-    // Prevent text selection while dragging
+    setShowHelp(false);
+    localStorage.setItem("patternLineUsed", "true");
     document.body.style.userSelect = "none";
   };
 
@@ -40,7 +46,6 @@ const PatternLineTracker = () => {
 
   const handleEnd = () => {
     setIsDragging(false);
-    // Re-enable text selection
     document.body.style.userSelect = "";
   };
 
@@ -62,11 +67,17 @@ const PatternLineTracker = () => {
 
   return (
     <div
-      className={styles.lineTracker}
+      className={`${styles.lineTracker} ${showHelp ? styles.showHelp : ""}`}
       style={{ top: position }}
       onMouseDown={handleStart as (e: ReactMouseEvent) => void}
       onTouchStart={handleStart as (e: ReactTouchEvent) => void}
-    />
+    >
+      {showHelp && (
+        <span className={styles.helpText}>
+          Drag this bar to keep track of your progress!
+        </span>
+      )}
+    </div>
   );
 };
 
