@@ -2,6 +2,7 @@ import Link from "next/link";
 import Footer from "../../layout/footer";
 import styles from "../pattern.module.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import PatternLineTracker from "../../components/PatternLineTracker";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function DrinkKoozie() {
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
+      <PatternLineTracker />
       <article className={styles.patternArticleContainer}>
         <h1 className={styles.patternTitle}>Drink Koozie</h1>
         <h2 className={styles.patternSubtitle}>Crochet Test Pattern</h2>
