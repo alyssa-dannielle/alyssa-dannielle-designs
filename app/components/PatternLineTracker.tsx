@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import type {
   MouseEvent as ReactMouseEvent,
   TouchEvent as ReactTouchEvent,
@@ -11,6 +11,7 @@ const PatternLineTracker = () => {
   const [position, setPosition] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [showHelp, setShowHelp] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const savedPosition = localStorage.getItem('patternLinePosition');
@@ -33,12 +34,18 @@ const PatternLineTracker = () => {
 
   const handleMove = useCallback(
     (e: MouseEvent | TouchEvent) => {
-      if (isDragging) {
+      if (isDragging && containerRef.current) {
         e.preventDefault();
-        const newPosition =
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const clientY =
           'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
-        setPosition(newPosition);
-        localStorage.setItem('patternLinePosition', newPosition.toString());
+        const relativePosition = clientY - containerRect.top + window.scrollY;
+
+        setPosition(relativePosition);
+        localStorage.setItem(
+          'patternLinePosition',
+          relativePosition.toString()
+        );
       }
     },
     [isDragging]
@@ -66,17 +73,20 @@ const PatternLineTracker = () => {
   }, [isDragging, handleMove]);
 
   return (
-    <div
-      className={`${styles.lineTracker} ${showHelp ? styles.showHelp : ''}`}
-      style={{ top: position }}
-      onMouseDown={handleStart as (e: ReactMouseEvent) => void}
-      onTouchStart={handleStart as (e: ReactTouchEvent) => void}
-    >
-      {showHelp && (
-        <span className={styles.helpText}>
-          Drag this bar to keep track of your progress!
-        </span>
-      )}
+    <div ref={containerRef} className={styles.patternContainer}>
+      <div
+        className={`${styles.lineTracker} ${showHelp ? styles.showHelp : ''}`}
+        style={{ top: position }}
+        onMouseDown={handleStart as (e: ReactMouseEvent) => void}
+        onTouchStart={handleStart as (e: ReactTouchEvent) => void}
+      >
+        {showHelp && (
+          <span className={styles.helpText}>
+            Drag this bar to keep track of your progress!
+          </span>
+        )}
+      </div>
+      {/* Your pattern content goes here */}
     </div>
   );
 };
