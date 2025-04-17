@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Footer from "../../layout/footer";
 import styles from "../pattern.module.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Drink Koozie Crochet Pattern",
@@ -172,6 +173,7 @@ export default function DrinkKoozie() {
         </ol>
       </article>
       <Footer />
+      <GoogleAnalytics gaId="G-3PNFXR7ZY5" />
     </main>
   );
 }
