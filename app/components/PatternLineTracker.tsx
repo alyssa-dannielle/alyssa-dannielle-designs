@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./PatternLineTracker.module.css";
 
 const PatternLineTracker = () => {
@@ -19,13 +19,16 @@ const PatternLineTracker = () => {
     setIsDragging(true);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      const newPosition = e.clientY;
-      setPosition(newPosition);
-      localStorage.setItem("patternLinePosition", newPosition.toString());
-    }
-  };
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (isDragging) {
+        const newPosition = e.clientY;
+        setPosition(newPosition);
+        localStorage.setItem("patternLinePosition", newPosition.toString());
+      }
+    },
+    [isDragging]
+  );
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -41,7 +44,7 @@ const PatternLineTracker = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove]);
 
   return (
     <div
