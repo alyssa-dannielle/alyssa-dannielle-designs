@@ -3,12 +3,12 @@
   left: 0;
   width: 100%;
   height: 20px;
-  background-color: rgba(255, 99, 71, 0.5);
+  background-color: rgba(64, 224, 208, 0.5); Turquoise
   cursor: row-resize;
   z-index: 1000;
   touch-action: none;
 }
 
 .lineTracker:hover {
-  background-color: rgba(255, 99, 71, 0.7);
+  background-color: rgba(64, 224, 208, 0.7);
 }
