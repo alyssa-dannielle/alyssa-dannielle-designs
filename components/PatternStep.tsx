@@ -6,7 +6,7 @@ interface PatternStepProps {
 export default function PatternStep({ text, stitchCount }: PatternStepProps) {
   return (
     <li>
-      <div className='flex flex-col sm:flex-row justify-between items-center'>
+      <div className='flex flex-col sm:flex-row justify-between'>
         <span className='flex-1'>{text}</span>
         {stitchCount && (
           <span className='dark:text-gray-400 text-gray-600 italic self-end sm:ml-4'>
