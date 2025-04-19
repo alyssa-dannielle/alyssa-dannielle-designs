@@ -148,70 +148,83 @@ export default function Pokeball() {
             <ol className={styles.patternStepSet}>
               <PatternStep
                 text='Using 2 strands of red, work 8 hdc in a magic ring'
-                stitchCount='8 stitches'
+                stitchCount='8'
               />
               <PatternStep
                 text='Continuing around, work 1 hdcInc in each stitch around to end'
-                stitchCount='16 stitches'
+                stitchCount='16'
               />
               <PatternStep
                 text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } around to end'
-                stitchCount='24 stitches'
+                stitchCount='24'
               />
               <PatternStep
                 text='Work 1 hdc in next stitch, repeat { 1 hdc in next 2 stitches and 1 hdcInc in next stitch } around to end, work 1 hdc in last stitch'
-                stitchCount='32 stitches'
+                stitchCount='32'
               />
+              <PatternStep
+                text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } around to end'
+                stitchCount='40'
+              />
+              <PatternStep
+                text='Work 1 hdc in each stitch around to end, join'
+                stitchCount='40'
+              />
+              <PatternStep
+                text='Work 1 ss in each stitch around to end, join'
+                stitchCount='40'
+              />
+              <PatternStep text='Invisible finish and leave a long black tail for sewing' />
             </ol>
-            <h3 id='body' className={styles.patternSubsectionHeading}>
+            <h3 id='bottom' className={styles.patternSubsectionHeading}>
               <span className='flex items-center gap-2'>
-                Body:
+                Bottom:
                 <BackToTopButton />
               </span>
             </h3>
             <ol className={styles.patternStepSet}>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Continuing around, work 1 hdc in each stitch around
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${styles.patternStitchCount}`}
-                  >
-                    ... 24 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Continuing around, repeat the previous round to desired
-                    height
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${styles.patternStitchCount}`}
-                  >
-                    ... 24 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    (optional) If your final row ends in the middle of the
-                    koozie and/or if you’d like a less abrupt finish, work
-                    single crochets to one side of koozie before finishing off
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Finish off (optional invisible finish) and weave in the
-                    tails.
-                  </span>
-                </div>
-              </li>
+              <PatternStep
+                text='Using 2 strands of white, work 8 hdc in a magic ring'
+                stitchCount='8'
+              />
+              <PatternStep
+                text='Continuing around, work 1 hdcInc in each stitch around to end'
+                stitchCount='16'
+              />
+              <PatternStep
+                text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } around to end'
+                stitchCount='24'
+              />
+              <PatternStep
+                text='Work 1 hdc in next stitch, repeat { 1 hdc in next 2 stitches and 1 hdcInc in next stitch } around to end, work 1 hdc in last stitch'
+                stitchCount='32'
+              />
+              <PatternStep
+                text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } around to end'
+                stitchCount='40'
+              />
+              <PatternStep
+                text='Work 1 hdc in each stitch around to end, join'
+                stitchCount='40'
+              />
+              <PatternStep
+                text='Work 1 ss in each stitch around to end, join'
+                stitchCount='40'
+              />
+              <PatternStep text='Invisible finish and leave a long black tail for sewing' />
+            </ol>
+            <h3 id='assembly' className={styles.patternSubsectionHeading}>
+              <span className='flex items-center gap-2'>
+                Assembly:
+                <BackToTopButton />
+              </span>
+            </h3>
+            <ol className={styles.patternStepSet}>
+              <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
+              <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
+              <PatternStep text='After stuffing, finish stitching pokeball closed' />
+              <PatternStep text='With any tail, stitch button on to pokeball directly between top and bottom' />
+              <PatternStep text='Hide all tails inside the pokeball' />
             </ol>
           </div>
         </article>

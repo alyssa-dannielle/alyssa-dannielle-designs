@@ -10,7 +10,7 @@ export default function PatternStep({ text, stitchCount }: PatternStepProps) {
         <span className='flex-1'>{text}</span>
         {stitchCount && (
           <span className='dark:text-gray-400 text-sm whitespace-nowrap'>
-            ... {stitchCount}
+            ... {stitchCount} stitches
           </span>
         )}
       </div>
