@@ -5,6 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import PatternLineTracker from '../../components/PatternLineTracker';
 import PatternNavigation from '../../../components/PatternNavigation';
 import BackToTopButton from '../../../components/BackToTopButton';
+import PatternStep from '../../../components/PatternStep';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -145,44 +146,22 @@ export default function Pokeball() {
               </span>
             </h3>
             <ol className={styles.patternStepSet}>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Using 2 strands of red, work 8 hdc in a magic ring
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${styles.patternStitchCount}`}
-                  >
-                    ... 8 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Continuing around, work 1 hdcInc in each stitch around to
-                    end
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${styles.patternStitchCount}`}
-                  >
-                    ... 16 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Repeat {'{'} 1 hdc in next stitch and 1 hdcInc in next
-                    stitch {'}'} around to end
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${styles.patternStitchCount}`}
-                  >
-                    ... 24 stitches
-                  </span>
-                </div>
-              </li>
+              <PatternStep
+                text='Using 2 strands of red, work 8 hdc in a magic ring'
+                stitchCount='8 stitches'
+              />
+              <PatternStep
+                text='Continuing around, work 1 hdcInc in each stitch around to end'
+                stitchCount='16 stitches'
+              />
+              <PatternStep
+                text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } around to end'
+                stitchCount='24 stitches'
+              />
+              <PatternStep
+                text='Work 1 hdc in next stitch, repeat { 1 hdc in next 2 stitches and 1 hdcInc in next stitch } around to end, work 1 hdc in last stitch'
+                stitchCount='32 stitches'
+              />
             </ol>
             <h3 id='body' className={styles.patternSubsectionHeading}>
               <span className='flex items-center gap-2'>
