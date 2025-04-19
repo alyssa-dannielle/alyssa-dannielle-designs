@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/:pattern"
+  to = "/patterns/:pattern"
+  status = 200
