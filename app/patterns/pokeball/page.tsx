@@ -99,45 +99,19 @@ export default function Pokeball() {
               </span>
             </h3>
             <ol className={styles.patternStepSet}>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Using 2 strands of white, work 8 hdc in a magic ring, join
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${`dark:text-gray-400 ${styles.patternStitchCount}`}`}
-                  >
-                    ... 8 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Work 2 ss in each stitch around to end, join
-                  </span>
-                  <span
-                    className={`dark:text-gray-400 ${`dark:text-gray-400 ${styles.patternStitchCount}`}`}
-                  >
-                    ... 16 stitches
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Invisible finish and leave a long black tail for sewing
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div className={styles.patternStep}>
-                  <span className='flex-1'>
-                    Thread tapestry needle with tail and embroider a circle
-                    between 1st and 2nd rounds
-                  </span>
-                </div>
-              </li>
+              <PatternStep
+                text='Using 2 strands of white, work 8 hdc in a magic ring, join'
+                stitchCount='8'
+              />
+              <PatternStep
+                text='Work 2 ss in each stitch around to end, join'
+                stitchCount='16'
+              />
+              <PatternStep text='Invisible finish and leave a long black tail for sewing' />
+              <PatternStep
+                text='Thread tapestry needle with tail and embroider a circle
+                    between 1st and 2nd rounds'
+              />
             </ol>
             <h3 id='top' className={styles.patternSubsectionHeading}>
               <span className='flex items-center gap-2'>
