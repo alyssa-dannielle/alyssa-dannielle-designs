@@ -6,6 +6,7 @@ import PatternLineTracker from '../../components/PatternLineTracker';
 import PatternNavigation from '../../../components/PatternNavigation';
 import BackToTopButton from '../../../components/BackToTopButton';
 import PatternStep from '../../../components/PatternStep';
+import PatternStepSection from '../../../components/PatternStepSection';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -92,13 +93,7 @@ export default function Pokeball() {
                 <BackToTopButton />
               </span>
             </h2>
-            <h3 id='button' className={styles.patternSubsectionHeading}>
-              <span className='flex items-center gap-2'>
-                Button:
-                <BackToTopButton />
-              </span>
-            </h3>
-            <ol className={styles.patternStepSet}>
+            <PatternStepSection id='button' heading='Button'>
               <PatternStep
                 text='Using 2 strands of white, work 8 hdc in a magic ring, join'
                 stitchCount='8'
@@ -112,14 +107,9 @@ export default function Pokeball() {
                 text='Thread tapestry needle with tail and embroider a circle
                     between 1st and 2nd rounds'
               />
-            </ol>
-            <h3 id='top' className={styles.patternSubsectionHeading}>
-              <span className='flex items-center gap-2'>
-                Top:
-                <BackToTopButton />
-              </span>
-            </h3>
-            <ol className={styles.patternStepSet}>
+            </PatternStepSection>
+
+            <PatternStepSection id='top' heading='Top'>
               <PatternStep
                 text='Using 2 strands of red, work 8 hdc in a magic ring'
                 stitchCount='8'
@@ -149,14 +139,9 @@ export default function Pokeball() {
                 stitchCount='40'
               />
               <PatternStep text='Invisible finish and leave a long black tail for sewing' />
-            </ol>
-            <h3 id='bottom' className={styles.patternSubsectionHeading}>
-              <span className='flex items-center gap-2'>
-                Bottom:
-                <BackToTopButton />
-              </span>
-            </h3>
-            <ol className={styles.patternStepSet}>
+            </PatternStepSection>
+
+            <PatternStepSection id='bottom' heading='Bottom'>
               <PatternStep
                 text='Using 2 strands of white, work 8 hdc in a magic ring'
                 stitchCount='8'
@@ -186,20 +171,14 @@ export default function Pokeball() {
                 stitchCount='40'
               />
               <PatternStep text='Invisible finish and leave a long black tail for sewing' />
-            </ol>
-            <h3 id='assembly' className={styles.patternSubsectionHeading}>
-              <span className='flex items-center gap-2'>
-                Assembly:
-                <BackToTopButton />
-              </span>
-            </h3>
-            <ol className={styles.patternStepSet}>
+            </PatternStepSection>
+            <PatternStepSection id='assembly' heading='Assembly'>
               <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
               <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
               <PatternStep text='After stuffing, finish stitching pokeball closed' />
               <PatternStep text='With any tail, stitch button on to pokeball directly between top and bottom' />
               <PatternStep text='Hide all tails inside the pokeball' />
-            </ol>
+            </PatternStepSection>
           </div>
         </article>
       </div>
