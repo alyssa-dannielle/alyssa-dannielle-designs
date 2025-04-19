@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from '../patterns/pattern.module.css';
 
 interface PatternIntroductionProps {
   author: string;
@@ -14,15 +13,15 @@ export default function PatternIntroduction({
 }: PatternIntroductionProps) {
   return (
     <>
-      <p className={`dark:text-gray-300 ${styles.patternTermsAndAuthor}`}>
+      <p className='text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 mb-4'>
         Written in US Terms by {author}
       </p>
-      <p className={styles.patternText}>
+      <p className='text-sm sm:text-base md:text-lg mb-4'>
         {introText}{' '}
         <Link
           target='_blank'
           rel='noreferrer'
-          className='text-blue-600'
+          className='text-blue-600 hover:text-blue-800'
           href={formLink}
         >
           this questionnaire!

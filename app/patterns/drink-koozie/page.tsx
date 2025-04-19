@@ -1,13 +1,12 @@
-import Link from 'next/link';
-import Footer from '../../layout/footer';
-import styles from '../pattern.module.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import PatternLineTracker from '../../components/PatternLineTracker';
-import PatternNavigation from '../../components/PatternNavigation';
-import BackToTopButton from '../../components/BackToTopButton';
-import PatternStep from '../../../components/PatternStep';
-import PatternStepSection from '../../../components/PatternStepSection';
+import PatternLayout from '../../components/PatternLayout';
 import PatternSchema from '../../../components/PatternSchema';
+import PatternIntroduction from '../../components/PatternIntroduction';
+import PatternSupplyList from '../../components/PatternSupplyList';
+import PatternTechniquesList from '../../components/PatternTechniquesList';
+import PatternStepSection from '../../../components/PatternStepSection';
+import PatternStep from '../../../components/PatternStep';
+import PatternSectionHeading from '../../../components/PatternSectionHeading';
 
 export const metadata = {
   title: 'Drink Koozie Crochet Pattern',
@@ -25,6 +24,26 @@ export default function DrinkKoozie() {
     { label: 'Body', anchor: 'body' },
   ];
 
+  const supplies = [
+    {
+      text: '~50g (approx 90 yds) medium weight yarn (I used Red Heart Super Saver) any color',
+    },
+    { text: '5mm (H) crochet hook' },
+    { text: 'Crochet notions:' },
+    { text: 'Stitch marker', indent: true },
+    { text: 'Scissors', indent: true },
+    { text: 'Tapestry needle (optional)', indent: true },
+  ];
+
+  const techniques = [
+    'Magic ring',
+    'Chain - ch',
+    'Half double crochet - hdc',
+    'Half double crochet increase - hdcInc (2 hdc in 1 stitch)',
+    'Single crochet - sc (optional)',
+    'Invisible finish off (optional)',
+  ];
+
   return (
     <>
       <PatternSchema
@@ -38,120 +57,58 @@ export default function DrinkKoozie() {
         ]}
         supplies={['Medium weight yarn (~50g/90 yds)']}
       />
-      <main className='flex min-h-screen flex-col items-center p-10'>
-        <div className='flex flex-col md:flex-row gap-8 w-full max-w-7xl'>
-          <PatternNavigation sections={patternSections} />
-          <article className={styles.patternArticleContainer}>
-            <h1 className={styles.patternTitle}>Drink Koozie</h1>
-            <h2 className={styles.patternSubtitle}>Crochet Test Pattern</h2>
-            <PatternLineTracker />
-            <div>
-              <p
-                className={`dark:text-gray-300 ${styles.patternTermsAndAuthor}`}
-              >
-                Written in US Terms by Alyssa Dannielle
-              </p>
-              <p className={styles.patternText}>
-                Hi and thanks for checking out my drink koozie crochet pattern!
-                Currently this pattern contains written instructions only. Keep
-                checking back while I continue to add to this pattern based on
-                tester feedback. To leave your feedback, please fill out{' '}
-                <Link
-                  target='_blank'
-                  rel='noreferrer'
-                  className='text-blue-600'
-                  href='https://docs.google.com/forms/d/e/1FAIpQLSdQM8cCneOQsnqAGG5sEcVOmwl5F4ZJVaNQ-LMNYLtjTM4KEQ/viewform?usp=preview'
-                >
-                  this questionnaire!
-                </Link>
-              </p>
+      <PatternLayout title='Drink Koozie' sections={patternSections}>
+        <PatternIntroduction
+          author='Alyssa Dannielle'
+          formLink='https://docs.google.com/forms/d/e/1FAIpQLSdQM8cCneOQsnqAGG5sEcVOmwl5F4ZJVaNQ-LMNYLtjTM4KEQ/viewform?usp=preview'
+          introText='Hi and thanks for checking out my drink koozie crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
+        />
 
-              <h2 id='supplies' className={styles.patternSectionHeading}>
-                <span className='flex items-center gap-2'>
-                  Supplies Needed:
-                  <BackToTopButton />
-                </span>
-              </h2>
-              <ul className={styles.patternList}>
-                <li>
-                  ~50g (approx 90 yds) medium weight yarn (I used Red Heart
-                  Super Saver) any color
-                </li>
-                <li>5mm (H) crochet hook</li>
-                <li>Crochet notions:</li>
-                <li className='ml-6'>Stitch marker</li>
-                <li className='ml-6'>Scissors</li>
-                <li className='ml-6'>Tapestry needle (optional)</li>
-              </ul>
+        <PatternSupplyList supplies={supplies} />
+        <PatternTechniquesList techniques={techniques} />
 
-              <h2 id='stitches' className={styles.patternSectionHeading}>
-                <span className='flex items-center gap-2'>
-                  Stitches & Techniques Used:
-                  <BackToTopButton />
-                </span>
-              </h2>
-              <ul className={styles.patternList}>
-                <li>Magic ring</li>
-                <li>Chain - ch</li>
-                <li>Half double crochet - hdc</li>
-                <li>
-                  Half double crochet increase - hdcInc (2 hdc in 1 stitch)
-                </li>
-                <li>Single crochet - sc (optional)</li>
-                <li>Invisible finish off (optional)</li>
-              </ul>
+        <PatternSectionHeading id='instructions' heading='Instructions' />
 
-              <h2 id='instructions' className={styles.patternSectionHeading}>
-                <span className='flex items-center gap-2'>
-                  Instructions:
-                  <BackToTopButton />
-                </span>
-              </h2>
+        <PatternStepSection id='base' heading='Base'>
+          <PatternStep
+            text='With 2 strands of yarn, work 8 hdc in a magic ring'
+            stitchCount='8'
+          />
+          <PatternStep
+            text='Continuing around, work 1 hdcInc in each stitch around to end'
+            stitchCount='16'
+          />
+          <PatternStep
+            text='Continuing around, work 1 hdc in next stitch and 1 hdcInc in following stitch repeat instructions inside braces around to end'
+            stitchCount='24'
+          />
+        </PatternStepSection>
 
-              <PatternStepSection id='base' heading='Base'>
-                <PatternStep
-                  text='With 2 strands of yarn, work 8 hdc in a magic ring'
-                  stitchCount='8'
-                />
-                <PatternStep
-                  text='Continuing around, work 1 hdcInc in each stitch around to end'
-                  stitchCount='16'
-                />
-                <PatternStep
-                  text='Continuing around, work 1 hdc in next stitch and 1 hdcInc in following stitch repeat instructions inside braces around to end'
-                  stitchCount='24'
-                />
-              </PatternStepSection>
+        <PatternStepSection id='opening' heading='Opening'>
+          <PatternStep
+            text='Continuing around, work 1 hdc in next 4 stitches, ch 8, skip 8 hdc repeat instructions inside braces one more time to end'
+            stitchCount='8 stitches, 16 chains'
+          />
+          <PatternStep
+            text='Continuing around, work 1 hdc in next 4 stitches and 8 hdc in chain space repeat instruction inside braces one more time to end'
+            stitchCount='24'
+          />
+        </PatternStepSection>
 
-              <PatternStepSection id='opening' heading='Opening'>
-                <PatternStep
-                  text='Continuing around, work 1 hdc in next 4 stitches, ch 8, skip 8 hdc repeat instructions inside braces one more time to end'
-                  stitchCount='8 stitches, 16 chains'
-                />
-                <PatternStep
-                  text='Continuing around, work 1 hdc in next 4 stitches and 8 hdc in chain space repeat instruction inside braces one more time to end'
-                  stitchCount='24'
-                />
-              </PatternStepSection>
-
-              <PatternStepSection id='body' heading='Body'>
-                <PatternStep
-                  text='Continuing around, work 1 hdc in each stitch around'
-                  stitchCount='24'
-                />
-                <PatternStep
-                  text='Continuing around, repeat the previous round to desired height'
-                  stitchCount='24'
-                />
-                <PatternStep text="(optional) If your final row ends in the middle of the koozie and/or if you'd like a less abrupt finish, work single crochets to one side of koozie before finishing off" />
-                <PatternStep text='Finish off (optional invisible finish) and weave in the tails.' />
-              </PatternStepSection>
-            </div>
-          </article>
-        </div>
-        <Footer />
-        <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
-      </main>
+        <PatternStepSection id='body' heading='Body'>
+          <PatternStep
+            text='Continuing around, work 1 hdc in each stitch around'
+            stitchCount='24'
+          />
+          <PatternStep
+            text='Continuing around, repeat the previous round to desired height'
+            stitchCount='24'
+          />
+          <PatternStep text="(optional) If your final row ends in the middle of the koozie and/or if you'd like a less abrupt finish, work single crochets to one side of koozie before finishing off" />
+          <PatternStep text='Finish off (optional invisible finish) and weave in the tails.' />
+        </PatternStepSection>
+      </PatternLayout>
+      <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
     </>
   );
 }

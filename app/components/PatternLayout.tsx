@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Footer from '../../app/layout/footer';
-import styles from '../app/patterns/pattern.module.css';
 import PatternNavigation from './PatternNavigation';
 import PatternLineTracker from './PatternLineTracker';
 
@@ -21,9 +20,13 @@ export default function PatternLayout({
       <main className='flex min-h-screen flex-col items-center p-10'>
         <div className='flex flex-col md:flex-row gap-8 w-full max-w-7xl'>
           <PatternNavigation sections={sections} />
-          <article className={styles.patternArticleContainer}>
-            <h1 className={styles.patternTitle}>{title}</h1>
-            <h2 className={styles.patternSubtitle}>Crochet Test Pattern</h2>
+          <article className='max-w-4xl w-full'>
+            <h1 className='text-2xl sm:text-4xl md:text-6xl font-bold mb-2'>
+              {title}
+            </h1>
+            <h2 className='text-xl sm:text-2xl md:text-3xl font-semibold mb-6'>
+              Crochet Test Pattern
+            </h2>
             <PatternLineTracker />
             <div>{children}</div>
           </article>
