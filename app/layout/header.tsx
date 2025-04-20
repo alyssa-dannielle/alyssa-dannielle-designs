@@ -47,24 +47,54 @@ const Header = () => {
     let timeoutId: NodeJS.Timeout;
 
     const handleScroll = () => {
-      // Show header immediately when scrolling starts
-      setIsVisible(true);
+      const currentScrollY = window.scrollY;
+      const pageHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-      // Clear any existing timeout
-      clearTimeout(timeoutId);
+      // First update the last scroll position
+      setLastScrollY(currentScrollY);
 
-      // Set a timeout to hide the header after scrolling stops
-      timeoutId = setTimeout(() => {
-        setIsVisible(false);
-      }, 2000); // Hide after 2 seconds of no scrolling
+      // Always show header in these cases:
+      // 1. At the top of the page (currentScrollY < 100)
+      // 2. On short pages (pageHeight < 200)
+      // 3. At the bottom of the page (currentScrollY >= pageHeight)
+      if (
+        currentScrollY < 100 ||
+        pageHeight < 200 ||
+        currentScrollY >= pageHeight
+      ) {
+        setIsVisible(true);
+        clearTimeout(timeoutId); // Clear any pending hide timeout
+        return;
+      }
+
+      // Compare current scroll position with previous
+      const isScrollingUp = currentScrollY < lastScrollY;
+
+      // Show header when scrolling up
+      if (isScrollingUp) {
+        setIsVisible(true);
+        clearTimeout(timeoutId); // Clear any pending hide timeout
+      }
+
+      // Only set hide timeout when scrolling down
+      if (!isScrollingUp) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          setIsVisible(false);
+        }, 2000);
+      }
     };
+
+    // Initial check
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [lastScrollY]); // Add lastScrollY to dependencies
 
   return (
     <div
