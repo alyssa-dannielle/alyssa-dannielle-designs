@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`dark:bg-gray-900 dark:text-white ${inter.className}`}>
         <Header />
-        <main className='container'>{children}</main>
+        <main className='container pt-[72px]'>{children}</main>
       </body>
       <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
     </html>

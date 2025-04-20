@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -43,8 +43,35 @@ const Header = (props: Props) => {
     localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
   };
 
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      // Show header immediately when scrolling starts
+      setIsVisible(true);
+
+      // Clear any existing timeout
+      clearTimeout(timeoutId);
+
+      // Set a timeout to hide the header after scrolling stops
+      timeoutId = setTimeout(() => {
+        setIsVisible(false);
+      }, 2000); // Hide after 2 seconds of no scrolling
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
-    <div className='border-b flex justify-between'>
+    <div
+      className={`fixed top-0 left-0 right-0 border-b flex justify-between bg-white dark:bg-gray-900 transition-transform duration-300 z-50 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className='p-5'>
         <Link href='/'>AlyssaDannielle.Design</Link>
       </div>
