@@ -7,3 +7,9 @@ import PatternTechniquesList from '../../components/PatternTechniquesList';
 import PatternStepSection from '../../../components/PatternStepSection';
 import PatternStep from '../../../components/PatternStep';
 import PatternSectionHeading from '../../../components/PatternSectionHeading';
+
+export const metadata = {
+  title: 'Axolotl Crochet Pattern',
+  description:
+    'Free crochet pattern for an adorable axolotl. Great for an experienced crocheter who loves amphibians',
+};
