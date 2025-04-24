@@ -17,6 +17,11 @@ export default function Home() {
             View Pokéball Pattern
           </button>
         </Link>
+        <Link href='/patterns/axolotl'>
+          <button className='px-6 py-3 rounded-lg bg-teal-700 text-white font-medium transform transition duration-200 ease-in-out hover:bg-teal-800 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2'>
+            View Axolotl Pattern
+          </button>
+        </Link>
       </div>
       <Footer />
     </>
