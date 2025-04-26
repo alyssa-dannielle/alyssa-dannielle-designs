@@ -19,19 +19,19 @@ export default function SocialShare({ title, url }: SocialShareProps) {
       name: 'Facebook',
       icon: faFacebook,
       url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      color: 'hover:text-blue-600',
+      color: 'hover:text-blue-600 dark:hover:text-blue-400',
     },
     {
       name: 'Twitter',
       icon: faXTwitter,
       url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-      color: 'hover:text-gray-800',
+      color: 'hover:text-gray-950 dark:hover:text-gray-50',
     },
     {
       name: 'Reddit',
       icon: faReddit,
       url: `https://reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
-      color: 'hover:text-orange-600',
+      color: 'hover:text-orange-600 dark:hover:text-orange-400',
     },
   ];
 
@@ -44,7 +44,7 @@ export default function SocialShare({ title, url }: SocialShareProps) {
             href={platform.url}
             target='_blank'
             rel='noopener noreferrer'
-            className={`text-gray-600 dark:text-gray-300 ${platform.color} transition-colors`}
+            className={`text-gray-800 dark:text-gray-200 ${platform.color} transition-colors`}
             aria-label={`Share on ${platform.name}`}
           >
             <FontAwesomeIcon icon={platform.icon} className='w-6 h-6' />
