@@ -3,6 +3,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Footer from '../../app/layout/footer';
 import PatternNavigation from './PatternNavigation';
 import PatternLineTracker from './PatternLineTracker';
+import SocialShare from '../../components/SocialShare';
 
 interface PatternLayoutProps {
   title: string;
@@ -15,6 +16,14 @@ export default function PatternLayout({
   sections,
   children,
 }: PatternLayoutProps) {
+  // Get the current URL - this needs to be client-side
+  const getUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return '';
+  };
+
   return (
     <>
       <main className='flex min-h-screen flex-col items-center p-10'>
@@ -27,6 +36,10 @@ export default function PatternLayout({
             <h2 className='text-xl sm:text-2xl md:text-3xl font-semibold mb-6'>
               Crochet Test Pattern
             </h2>
+            <SocialShare
+              title={`${title} - Free Crochet Pattern`}
+              url={getUrl()}
+            />
             <PatternLineTracker />
             <div>{children}</div>
           </article>
