@@ -1,4 +1,6 @@
-import { ReactNode } from 'react';
+'use client';
+
+import { ReactNode, useEffect, useState } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Footer from '../../app/layout/footer';
 import PatternNavigation from './PatternNavigation';
@@ -16,13 +18,11 @@ export default function PatternLayout({
   sections,
   children,
 }: PatternLayoutProps) {
-  // Get the current URL - this needs to be client-side
-  const getUrl = () => {
-    if (typeof window !== 'undefined') {
-      return window.location.href;
-    }
-    return '';
-  };
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function PatternLayout({
             </h2>
             <SocialShare
               title={`${title} - Free Crochet Pattern`}
-              url={getUrl()}
+              url={currentUrl}
             />
             <PatternLineTracker />
             <div>{children}</div>

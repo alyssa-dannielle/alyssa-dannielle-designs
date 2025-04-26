@@ -11,6 +11,9 @@ interface SocialShareProps {
 }
 
 export default function SocialShare({ title, url }: SocialShareProps) {
+  // If URL is empty, don't render the component
+  if (!url) return null;
+
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
