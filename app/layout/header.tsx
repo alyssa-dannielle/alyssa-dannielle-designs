@@ -69,11 +69,13 @@ const Header = (props: Props) => {
   };
 
   return (
-    <div className='border-b flex justify-between items-center'>
+    <div className='border-b flex items-center justify-between'>
+      {/* Left side with home link */}
       <div className='p-5'>
         <Link href='/'>AlyssaDannielle.Design</Link>
       </div>
 
+      {/* Center/Right side with menu and dark mode */}
       <div className='flex items-center gap-4 p-5'>
         {/* Patterns Menu */}
         <div className='relative patterns-menu'>
@@ -100,7 +102,7 @@ const Header = (props: Props) => {
 
           {/* Dropdown Menu */}
           {isMenuOpen && (
-            <div className='absolute right-0 mt-2 w-48 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border dark:border-gray-700'>
+            <div className='absolute right-0 mt-2 w-48 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border dark:border-gray-700 z-50'>
               {PATTERNS.map((pattern) => (
                 <Link
                   key={pattern.href}
