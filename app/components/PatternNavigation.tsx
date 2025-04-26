@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
 interface NavItem {
@@ -12,10 +13,17 @@ interface PatternNavigationProps {
   sections: NavItem[];
 }
 
+const PATTERNS = [
+  { name: 'Drink Koozie', href: '/patterns/drink-koozie' },
+  { name: 'Pokéball', href: '/patterns/pokeball' },
+  { name: 'Axolotl', href: '/patterns/axolotl' },
+];
+
 export default function PatternNavigation({
   sections,
 }: PatternNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPatternsOpen, setIsPatternsOpen] = useState(false);
 
   const scrollToSection = (anchor: string) => {
     const element = document.getElementById(anchor);
@@ -34,7 +42,7 @@ export default function PatternNavigation({
   };
 
   return (
-    <div className='w-full md:w-auto'>
+    <div className='flex flex-col gap-4 w-full md:w-64'>
       {/* Mobile Dropdown */}
       <div className='md:hidden'>
         <button
@@ -67,7 +75,7 @@ export default function PatternNavigation({
       {/* Desktop Sidebar */}
       <nav className='hidden md:block p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md w-full md:sticky md:top-4 md:max-w-xs md:max-h-[calc(100vh-2rem)] md:overflow-y-auto'>
         <h2 className='text-lg font-semibold mb-3'>Pattern Sections</h2>
-        <ul className='space-y-2'>
+        <ul className='space-y-2 mb-6'>
           {sections.map((section) => (
             <li key={section.anchor}>
               <button
@@ -79,6 +87,33 @@ export default function PatternNavigation({
             </li>
           ))}
         </ul>
+
+        {/* Other Patterns Section */}
+        <div className='border-t pt-4'>
+          <button
+            onClick={() => setIsPatternsOpen(!isPatternsOpen)}
+            className='flex items-center justify-between w-full px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700'
+          >
+            <span>Other Patterns</span>
+            <ChevronDownIcon
+              className={`w-4 h-4 transform ${isPatternsOpen ? 'rotate-180' : ''}`}
+            />
+          </button>
+          {isPatternsOpen && (
+            <ul className='mt-2 space-y-1'>
+              {PATTERNS.map((pattern) => (
+                <li key={pattern.href}>
+                  <Link
+                    href={pattern.href}
+                    className='block px-4 py-1 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 rounded'
+                  >
+                    {pattern.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </nav>
     </div>
   );
