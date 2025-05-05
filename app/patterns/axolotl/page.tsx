@@ -1,12 +1,14 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
-import PatternLayout from '../../components/pattern/layout/PatternLayout';
-import PatternSchema from '../../components/pattern/metadata/PatternSchema';
-import PatternIntroduction from '../../components/pattern/elements/PatternIntroduction';
-import PatternSupplyList from '../../components/pattern/elements/PatternSupplyList';
-import PatternTechniquesList from '../../components/pattern/elements/PatternTechniquesList';
-import PatternStepSection from '../../components/pattern/elements/PatternStepSection';
-import PatternStep from '../../components/pattern/elements/PatternStep';
-import PatternSectionHeading from '../../components/pattern/elements/PatternSectionHeading';
+import { PatternLayout } from '../../components/pattern/layout';
+import { PatternSchema } from '../../components/pattern/metadata';
+import {
+  PatternIntroduction,
+  PatternSupplyList,
+  PatternTechniquesList,
+  PatternStepSection,
+  PatternStep,
+  PatternSectionHeading,
+} from '../../components/pattern/elements';
 
 export const metadata = {
   title: 'Axolotl Crochet Pattern',
