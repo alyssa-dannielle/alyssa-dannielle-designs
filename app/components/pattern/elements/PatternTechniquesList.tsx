@@ -1,4 +1,4 @@
-import BackToTopButton from './common/BackToTopButton';
+import BackToTopButton from '../../common/BackToTopButton';
 
 interface PatternTechniquesListProps {
   techniques: string[];

@@ -1,12 +1,12 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
-import PatternLayout from '../../components/PatternLayout';
-import PatternSchema from '../../../components/PatternSchema';
-import PatternIntroduction from '../../components/PatternIntroduction';
-import PatternSupplyList from '../../components/PatternSupplyList';
-import PatternTechniquesList from '../../components/PatternTechniquesList';
-import PatternStepSection from '../../../components/PatternStepSection';
-import PatternStep from '../../../components/PatternStep';
-import PatternSectionHeading from '../../../components/PatternSectionHeading';
+import PatternLayout from '../../components/pattern/layout/PatternLayout';
+import PatternSchema from '../../components/pattern/metadata/PatternSchema';
+import PatternIntroduction from '../../components/pattern/elements/PatternIntroduction';
+import PatternSupplyList from '../../components/pattern/elements/PatternSupplyList';
+import PatternTechniquesList from '../../components/pattern/elements/PatternTechniquesList';
+import PatternStepSection from '../../components/pattern/elements/PatternStepSection';
+import PatternStep from '../../components/pattern/elements/PatternStep';
+import PatternSectionHeading from '../../components/pattern/elements/PatternSectionHeading';
 
 export const metadata = {
   title: 'Drink Koozie Crochet Pattern',

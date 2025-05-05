@@ -2,10 +2,10 @@
 
 import { ReactNode, useEffect, useState } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import Footer from '../../app/layout/footer';
+import Footer from '../../../layout/footer';
 import PatternNavigation from './PatternNavigation';
-import PatternLineTracker from './PatternLineTracker';
-import SocialShare from '../../components/SocialShare';
+import PatternLineTracker from '../elements/PatternLineTracker';
+import SocialShare from '../../common/SocialShare';
 
 interface PatternLayoutProps {
   title: string;

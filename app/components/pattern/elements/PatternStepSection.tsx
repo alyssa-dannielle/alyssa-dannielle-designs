@@ -1,4 +1,4 @@
-import BackToTopButton from '../app/components/common/BackToTopButton';
+import BackToTopButton from '../../common/BackToTopButton';
 
 interface PatternStepSectionProps {
   id: string;
