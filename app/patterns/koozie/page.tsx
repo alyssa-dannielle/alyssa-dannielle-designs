@@ -9,6 +9,8 @@ import {
   PatternStep,
   PatternSectionHeading,
 } from '../../components/pattern/elements';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'Drink Koozie Crochet Pattern',
@@ -109,6 +111,18 @@ export default function DrinkKoozie() {
           <PatternStep text="(optional) If your final row ends in the middle of the koozie and/or if you'd like a less abrupt finish, work single crochets to one side of koozie before finishing off" />
           <PatternStep text='Finish off (optional invisible finish) and weave in the tails.' />
         </PatternStepSection>
+        <div className='mt-8'>
+        <h3>Check out this 3D model made at <Link className='text-blue-600' href='https://www.crochetparade.org/' target='_blank' rel='noopener noreferrer'>crochetPARADE.org</Link>!</h3>
+        <div className="flex justify-center my-8">
+          <Image
+            src="/drink_koozie_3D.svg"
+            alt="3D illustration of a crocheted drink koozie"
+            width={400}
+            height={400}
+            priority
+          />
+        </div>
+        </div>
       </PatternLayout>
       <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
     </>
