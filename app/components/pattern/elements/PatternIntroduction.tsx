@@ -24,7 +24,16 @@ export default function PatternIntroduction({
           className='text-blue-600 hover:text-blue-800'
           href={formLink}
         >
-          this questionnaire!
+          this questionnaire!{' '}
+        </Link>
+        Graphs and 3D models made with{' '}
+        <Link
+          className='text-blue-600'
+          href='https://www.crochetparade.org/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          crochetPARADE.org
         </Link>
       </p>
     </>
