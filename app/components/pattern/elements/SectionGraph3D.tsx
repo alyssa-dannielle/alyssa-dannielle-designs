@@ -8,7 +8,7 @@ interface SectionGraph3DProps {
 export default function SectionGraph3D({ src, alt }: SectionGraph3DProps) {
   return (
     <div className='flex justify-center my-8'>
-      <div className='bg-white p-4 rounded-lg shadow-md'>
+      <div className='bg-white p-4 rounded-3xl shadow-md'>
         <Image src={src} alt={alt} width={400} height={400} priority />
       </div>
     </div>
