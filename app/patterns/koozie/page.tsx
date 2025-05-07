@@ -1,12 +1,14 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
-import PatternLayout from '../../components/PatternLayout';
-import PatternSchema from '../../../components/PatternSchema';
-import PatternIntroduction from '../../components/PatternIntroduction';
-import PatternSupplyList from '../../components/PatternSupplyList';
-import PatternTechniquesList from '../../components/PatternTechniquesList';
-import PatternStepSection from '../../../components/PatternStepSection';
-import PatternStep from '../../../components/PatternStep';
-import PatternSectionHeading from '../../../components/PatternSectionHeading';
+import { PatternLayout } from '../../components/pattern/layout';
+import { PatternSchema } from '../../components/pattern/metadata';
+import {
+  PatternIntroduction,
+  PatternSupplyList,
+  PatternTechniquesList,
+  PatternStepSection,
+  PatternStep,
+  PatternSectionHeading,
+} from '../../components/pattern/elements';
 
 export const metadata = {
   title: 'Drink Koozie Crochet Pattern',
