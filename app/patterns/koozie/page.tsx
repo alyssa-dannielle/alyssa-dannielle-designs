@@ -8,9 +8,9 @@ import {
   PatternStepSection,
   PatternStep,
   PatternSectionHeading,
+  SectionGraph3D,
 } from '../../components/pattern/elements';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export const metadata = {
   title: 'Drink Koozie Crochet Pattern',
@@ -86,15 +86,10 @@ export default function DrinkKoozie() {
             text='Continuing around, work 1 hdc in next stitch and 1 hdcInc in following stitch repeat instructions inside braces around to end'
             stitchCount='24'
           />
-          <div className='flex justify-center my-8'>
-            <Image
-              src='/koozie_base.svg'
-              alt='Graph of crocheted drink koozie base'
-              width={400}
-              height={400}
-              priority
-            />
-          </div>
+          <SectionGraph3D
+            src='/koozie_base.svg'
+            alt='Graph of crocheted drink koozie base'
+          />
         </PatternStepSection>
 
         <PatternStepSection id='opening' heading='Opening'>
@@ -106,15 +101,10 @@ export default function DrinkKoozie() {
             text='Continuing around, work 1 hdc in next 4 stitches and 8 hdc in chain space repeat instruction inside braces one more time to end'
             stitchCount='24'
           />
-          <div className='flex justify-center my-8'>
-            <Image
-              src='/koozie_opening.svg'
-              alt='3D graph of crocheted drink koozie base and opening'
-              width={400}
-              height={400}
-              priority
-            />
-          </div>
+          <SectionGraph3D
+            src='/koozie_opening.svg'
+            alt='3D graph of crocheted drink koozie base and opening'
+          />
         </PatternStepSection>
 
         <PatternStepSection id='body' heading='Body'>
@@ -128,15 +118,10 @@ export default function DrinkKoozie() {
           />
           <PatternStep text="(optional) If your final row ends in the middle of the koozie and/or if you'd like a less abrupt finish, work single crochets to one side of koozie before finishing off" />
           <PatternStep text='Finish off (optional invisible finish) and weave in the tails.' />
-          <div className='flex justify-center my-8'>
-            <Image
-              src='/drink_koozie_3D.svg'
-              alt='3D illustration of a crocheted drink koozie'
-              width={400}
-              height={400}
-              priority
-            />
-          </div>
+          <SectionGraph3D
+            src='/drink_koozie_3D.svg'
+            alt='3D illustration of a crocheted drink koozie'
+          />
         </PatternStepSection>
       </PatternLayout>
       <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
