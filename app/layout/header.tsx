@@ -9,6 +9,7 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const PATTERNS = [
   { name: 'Drink Koozie', href: '/patterns/koozie' },
@@ -87,6 +88,18 @@ const Header = (props: Props) => {
                 hover:text-[#E4405F] active:text-[#E4405F]
                 md:group-hover:text-[#E4405F]
               '
+            />
+          </Link>
+        </button>
+        <button className='group'>
+          <Link href='mailto:alyssa.dannielle@gmail.com?subject=From a User on AlyssaDannielle.Design'>
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className='
+        transition-colors duration-200
+        hover:text-blue-500 active:text-blue-500
+        md:group-hover:text-blue-500
+      '
             />
           </Link>
         </button>
