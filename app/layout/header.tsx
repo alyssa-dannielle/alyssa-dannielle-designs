@@ -71,22 +71,26 @@ const Header = (props: Props) => {
 
   return (
     <div className='border-b flex items-center justify-between'>
-      {/* Left side with home link */}
-      <div className='p-5'>
+      {/* Left side with home link and Instagram */}
+      <div className='p-5 flex items-center gap-4'>
         <Link href='/'>AlyssaDannielle.Design</Link>
-      </div>
-
-      <span>
-        <button>
+        <button className='group'>
           <Link
             href='https://www.instagram.com/alyssadannielle.design'
             target='_blank'
             rel='noreferrer'
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon
+              icon={faInstagram}
+              className='
+                transition-colors duration-200
+                hover:text-[#E4405F] active:text-[#E4405F]
+                md:group-hover:text-[#E4405F]
+              '
+            />
           </Link>
         </button>
-      </span>
+      </div>
 
       {/* Center/Right side with menu and dark mode */}
       <div className='flex items-center gap-4 p-5'>
