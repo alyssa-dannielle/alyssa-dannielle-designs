@@ -8,6 +8,7 @@ import {
   faBars,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const PATTERNS = [
   { name: 'Drink Koozie', href: '/patterns/koozie' },
@@ -74,6 +75,18 @@ const Header = (props: Props) => {
       <div className='p-5'>
         <Link href='/'>AlyssaDannielle.Design</Link>
       </div>
+
+      <span>
+        <button>
+          <Link
+            href='https://www.instagram.com/alyssadannielle.design'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </Link>
+        </button>
+      </span>
 
       {/* Center/Right side with menu and dark mode */}
       <div className='flex items-center gap-4 p-5'>
