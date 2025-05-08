@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ContactForm } from 'components/common';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMoon,
@@ -8,6 +9,8 @@ import {
   faBars,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const PATTERNS = [
   { name: 'Drink Koozie', href: '/patterns/koozie' },
@@ -20,6 +23,7 @@ type Props = {};
 const Header = (props: Props) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -70,9 +74,35 @@ const Header = (props: Props) => {
 
   return (
     <div className='border-b flex items-center justify-between'>
-      {/* Left side with home link */}
-      <div className='p-5'>
+      {/* Left side with home link and Instagram */}
+      <div className='p-5 flex items-center gap-4'>
         <Link href='/'>AlyssaDannielle.Design</Link>
+        <button className='group'>
+          <Link
+            href='https://www.instagram.com/alyssadannielle.design'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <FontAwesomeIcon
+              icon={faInstagram}
+              className='
+                transition-colors duration-200
+                hover:text-[#E4405F] active:text-[#E4405F]
+                md:group-hover:text-[#E4405F]
+              '
+            />
+          </Link>
+        </button>
+        <button className='group' onClick={() => setIsContactFormOpen(true)}>
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className='
+              transition-colors duration-200
+              hover:text-blue-500 active:text-blue-500
+              md:group-hover:text-blue-500
+            '
+          />
+        </button>
       </div>
 
       {/* Center/Right side with menu and dark mode */}
@@ -125,6 +155,10 @@ const Header = (props: Props) => {
           />
         </button>
       </div>
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+      />
     </div>
   );
 };
