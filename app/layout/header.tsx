@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ContactForm } from 'components/common';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMoon,
@@ -22,6 +23,7 @@ type Props = {};
 const Header = (props: Props) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -91,17 +93,15 @@ const Header = (props: Props) => {
             />
           </Link>
         </button>
-        <button className='group'>
-          <Link href='mailto:alyssa.dannielle@gmail.com?subject=From a User on AlyssaDannielle.Design'>
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className='
-        transition-colors duration-200
-        hover:text-blue-500 active:text-blue-500
-        md:group-hover:text-blue-500
-      '
-            />
-          </Link>
+        <button className='group' onClick={() => setIsContactFormOpen(true)}>
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className='
+              transition-colors duration-200
+              hover:text-blue-500 active:text-blue-500
+              md:group-hover:text-blue-500
+            '
+          />
         </button>
       </div>
 
@@ -155,6 +155,10 @@ const Header = (props: Props) => {
           />
         </button>
       </div>
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+      />
     </div>
   );
 };
