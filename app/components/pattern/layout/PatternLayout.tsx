@@ -1,8 +1,13 @@
-import { ReactNode } from 'react';
+'use client';
+
+import { ReactNode, useEffect, useState } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import Footer from '../../app/layout/footer';
-import PatternNavigation from './PatternNavigation';
-import PatternLineTracker from './PatternLineTracker';
+import Footer from '../../../layout/footer';
+import {
+  PatternNavigation,
+  PatternLineTracker,
+} from 'components/pattern/layout';
+import SocialShare from '../../common/SocialShare';
 
 interface PatternLayoutProps {
   title: string;
@@ -15,6 +20,12 @@ export default function PatternLayout({
   sections,
   children,
 }: PatternLayoutProps) {
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
   return (
     <>
       <main className='flex min-h-screen flex-col items-center p-10'>
@@ -27,6 +38,10 @@ export default function PatternLayout({
             <h2 className='text-xl sm:text-2xl md:text-3xl font-semibold mb-6'>
               Crochet Test Pattern
             </h2>
+            <SocialShare
+              title={`${title} - Free Crochet Pattern`}
+              url={currentUrl}
+            />
             <PatternLineTracker />
             <div>{children}</div>
           </article>

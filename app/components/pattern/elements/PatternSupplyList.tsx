@@ -1,4 +1,4 @@
-import BackToTopButton from './BackToTopButton';
+import BackToTopButton from '../../common/BackToTopButton';
 
 interface PatternSupplyListProps {
   supplies: Array<{ text: string; indent?: boolean }>;
