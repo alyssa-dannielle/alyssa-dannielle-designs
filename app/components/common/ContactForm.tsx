@@ -19,17 +19,25 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
     try {
       const formData = new FormData(e.currentTarget);
-      await fetch('/', {
+      const urlEncodedData = new URLSearchParams(formData as any).toString();
+
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: urlEncodedData,
       });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       setStatus('success');
       setTimeout(() => {
         onClose();
         setStatus('idle');
       }, 2000);
     } catch (error) {
+      console.error('Error:', error);
       setStatus('error');
     }
   };
@@ -50,6 +58,9 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
           onSubmit={handleSubmit}
           data-netlify='true'
           name='contact'
+          method='POST'
+          action='/success'
+          encType='multipart/form-data'
           className='space-y-4'
         >
           <input type='hidden' name='form-name' value='contact' />
