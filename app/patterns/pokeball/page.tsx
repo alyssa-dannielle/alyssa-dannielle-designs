@@ -87,7 +87,7 @@ export default function Pokeball() {
             stitchCount='8'
           />
           <PatternStep
-            text='Work 2 ss in each stitch around to end, join'
+            text='Work 2 ss in each stitch to the end, join'
             stitchCount='16'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
@@ -103,11 +103,11 @@ export default function Pokeball() {
             stitchCount='8'
           />
           <PatternStep
-            text='Continuing around, work 1 hdcInc in each stitch around to end'
+            text='Continuing around, work 1 hdcInc in each stitch to the end'
             stitchCount='16'
           />
           <PatternStep
-            text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } around to end'
+            text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } to the end'
             stitchCount='24'
           />
           <PatternStep
@@ -115,15 +115,15 @@ export default function Pokeball() {
             stitchCount='32'
           />
           <PatternStep
-            text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } around to end'
+            text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } to the end'
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 hdc in each stitch around to end, join'
+            text='Work 1 hdc in each stitch to the end, join'
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 ss in each stitch to the end, join'
             stitchCount='40'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
@@ -135,27 +135,27 @@ export default function Pokeball() {
             stitchCount='8'
           />
           <PatternStep
-            text='Continuing around, work 1 hdcInc in each stitch around to end'
+            text='Continuing around, work 1 hdcInc in each stitch to the end'
             stitchCount='16'
           />
           <PatternStep
-            text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } around to end'
+            text='Repeat { 1 hdc in next stitch and 1 hdcInc in next stitch } to the end'
             stitchCount='24'
           />
           <PatternStep
-            text='Work 1 hdc in next stitch, repeat { 1 hdc in next 2 stitches and 1 hdcInc in next stitch } around to end, work 1 hdc in last stitch'
+            text='Work 1 hdc in next stitch, repeat { 1 hdc in next 2 stitches and 1 hdcInc in next stitch } to the end, work 1 hdc in last stitch'
             stitchCount='32'
           />
           <PatternStep
-            text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } around to end'
+            text='Repeat { 1 hdc in next 3 stitches and 1 hdcInc in next stitch } to the end'
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 hdc in each stitch around to end, join'
+            text='Work 1 hdc in each stitch to the end, join'
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 ss in each stitch to the end, join'
             stitchCount='40'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
