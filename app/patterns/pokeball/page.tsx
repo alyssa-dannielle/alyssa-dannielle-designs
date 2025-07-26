@@ -83,7 +83,7 @@ export default function Pokeball() {
 
         <PatternStepSection id='button' heading='Button'>
           <PatternStep
-            text='Using 2 strands of white, work 8 hdc in a magic ring, join'
+            text='Using 2 strands of white yarn, work 8 hdc in a magic ring, join'
             stitchCount='8'
           />
           <PatternStep
@@ -99,7 +99,7 @@ export default function Pokeball() {
 
         <PatternStepSection id='top' heading='Top'>
           <PatternStep
-            text='Using 2 strands of red, work 8 hdc in a magic ring'
+            text='Using 2 strands of red yarn, work 8 hdc in a magic ring'
             stitchCount='8'
           />
           <PatternStep
@@ -131,7 +131,7 @@ export default function Pokeball() {
 
         <PatternStepSection id='bottom' heading='Bottom'>
           <PatternStep
-            text='Using 2 strands of white, work 8 hdc in a magic ring'
+            text='Using 2 strands of white yarn, work 8 hdc in a magic ring'
             stitchCount='8'
           />
           <PatternStep
