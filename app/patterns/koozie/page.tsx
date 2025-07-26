@@ -83,7 +83,7 @@ export default function DrinkKoozie() {
             stitchCount='16'
           />
           <PatternStep
-            text='Continuing around, work 1 hdc in next stitch and 1 hdcInc in following stitch repeat instructions inside braces around to end'
+            text='Continuing around, { work 1 hdc in next stitch and 1 hdcInc in following stitch } repeat instructions inside { braces } around to end'
             stitchCount='24'
           />
           <SectionGraph3D
@@ -94,11 +94,11 @@ export default function DrinkKoozie() {
 
         <PatternStepSection id='opening' heading='Opening'>
           <PatternStep
-            text='Continuing around, work 1 hdc in next 4 stitches, ch 8, skip 8 hdc repeat instructions inside braces one more time to end'
+            text='Continuing around, { work 1 hdc in next 4 stitches, ch 8, skip 8 hdc } repeat instructions inside { braces } one more time to end'
             stitchCount='8 stitches, 16 chains'
           />
           <PatternStep
-            text='Continuing around, work 1 hdc in next 4 stitches and 8 hdc in chain space repeat instruction inside braces one more time to end'
+            text='Continuing around, { work 1 hdc in next 4 stitches and 8 hdc in chain space } repeat instruction inside { braces } one more time to end'
             stitchCount='24'
           />
           <SectionGraph3D
