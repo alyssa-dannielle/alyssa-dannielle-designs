@@ -8,7 +8,9 @@ import {
   PatternSectionHeading,
   PatternStepSection,
   PatternStep,
+  PatternImage,
 } from '../../components/pattern/elements';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -76,12 +78,29 @@ export default function Pokeball() {
           introText='Hi and thanks for checking out my Pokéball crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
         />
 
+        <div className='my-8 flex justify-center'>
+          <div className='relative h-[500px] w-[300px] overflow-hidden'>
+            <Image
+              src='/pokeball_not_started.jpg'
+              alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+              fill
+              className='rounded-lg object-cover shadow-md hover:shadow-lg transition-all duration-300'
+              priority
+            />
+          </div>
+        </div>
+
         <PatternSupplyList supplies={supplies} />
         <PatternTechniquesList techniques={techniques} />
 
         <PatternSectionHeading id='instructions' heading='Instructions' />
 
         <PatternStepSection id='button' heading='Button'>
+          <PatternImage
+            src='/pokeball_button.jpg'
+            alt='Close up of the crocheted Pokéball button piece'
+            isCircular
+          />
           <PatternStep
             text='Using 2 strands of white, work 8 hdc in a magic ring, join'
             stitchCount='8'
@@ -98,6 +117,11 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='top' heading='Top'>
+          <PatternImage
+            src='/pokeball_top.jpg'
+            alt='Close up of the crocheted Pokéball top piece'
+            isCircular
+          />
           <PatternStep
             text='Using 2 strands of red, work 8 hdc in a magic ring'
             stitchCount='8'
@@ -130,6 +154,11 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='bottom' heading='Bottom'>
+          <PatternImage
+            src='/pokeball_bottom.jpg'
+            alt='Close up of the crocheted Pokéball bottom piece'
+            isCircular
+          />
           <PatternStep
             text='Using 2 strands of white, work 8 hdc in a magic ring'
             stitchCount='8'
@@ -162,6 +191,17 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='assembly' heading='Assembly'>
+          <div className='my-8 flex justify-center'>
+            <div className='relative aspect-square w-[280px] overflow-hidden'>
+              <Image
+                src='/pokeball_unassembled.jpg'
+                alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+                fill
+                className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
+                priority
+              />
+            </div>
+          </div>
           <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
           <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
           <PatternStep text='After stuffing, finish stitching pokeball closed' />
