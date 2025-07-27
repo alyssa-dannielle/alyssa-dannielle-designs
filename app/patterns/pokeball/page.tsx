@@ -8,6 +8,7 @@ import {
   PatternSectionHeading,
   PatternStepSection,
   PatternStep,
+  PatternImage,
 } from '../../components/pattern/elements';
 import Image from 'next/image';
 
@@ -95,17 +96,12 @@ export default function Pokeball() {
         <PatternSectionHeading id='instructions' heading='Instructions' />
 
         <PatternStepSection id='button' heading='Button'>
-          <div className='my-8 flex justify-center'>
-            <div className='relative aspect-square w-[280px] overflow-hidden'>
-              <Image
-                src='/pokeball_button.jpg'
-                alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
-                fill
-                className='rounded-full object-cover shadow-lg hover:scale-105 transition-transform duration-300 border-4 border-white/10'
-                priority
-              />
-            </div>
-          </div>
+          <PatternImage
+            src='/pokeball_button.jpg'
+            alt='Close up of the crocheted Pokéball button piece'
+            isCircular
+            priority
+          />
           <PatternStep
             text='Using 2 strands of white, work 8 hdc in a magic ring, join'
             stitchCount='8'
