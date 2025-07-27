@@ -81,7 +81,7 @@ export default function Pokeball() {
         <div className='my-8 flex justify-center'>
           <div className='relative aspect-square w-[280px] overflow-hidden'>
             <Image
-              src='/pokeball_unassembled.jpg'
+              src='/pokeball_not_started.jpg'
               alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
               fill
               className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
@@ -100,7 +100,6 @@ export default function Pokeball() {
             src='/pokeball_button.jpg'
             alt='Close up of the crocheted Pokéball button piece'
             isCircular
-            priority
           />
           <PatternStep
             text='Using 2 strands of white, work 8 hdc in a magic ring, join'
@@ -118,6 +117,11 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='top' heading='Top'>
+          <PatternImage
+            src='/pokeball_top.jpg'
+            alt='Close up of the crocheted Pokéball top piece'
+            isCircular
+          />
           <PatternStep
             text='Using 2 strands of red, work 8 hdc in a magic ring'
             stitchCount='8'
@@ -150,6 +154,11 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='bottom' heading='Bottom'>
+          <PatternImage
+            src='/pokeball_bottom.jpg'
+            alt='Close up of the crocheted Pokéball bottom piece'
+            isCircular
+          />
           <PatternStep
             text='Using 2 strands of white, work 8 hdc in a magic ring'
             stitchCount='8'
