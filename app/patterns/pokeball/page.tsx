@@ -191,6 +191,17 @@ export default function Pokeball() {
         </PatternStepSection>
 
         <PatternStepSection id='assembly' heading='Assembly'>
+          <div className='my-8 flex justify-center'>
+            <div className='relative aspect-square w-[280px] overflow-hidden'>
+              <Image
+                src='/pokeball_unassembled.jpg'
+                alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+                fill
+                className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
+                priority
+              />
+            </div>
+          </div>
           <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
           <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
           <PatternStep text='After stuffing, finish stitching pokeball closed' />
