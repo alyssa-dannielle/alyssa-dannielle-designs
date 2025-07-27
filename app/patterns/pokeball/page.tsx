@@ -9,6 +9,7 @@ import {
   PatternStepSection,
   PatternStep,
 } from '../../components/pattern/elements';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -75,6 +76,18 @@ export default function Pokeball() {
           formLink='https://docs.google.com/forms/d/e/1FAIpQLSeIeBSmj8wTg811x8V7tk9ork0neYhv20DQ7Zb5glu1KjkKqg/viewform?usp=preview'
           introText='Hi and thanks for checking out my Pokéball crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
         />
+
+        <div className='my-8 flex justify-center'>
+          <div className='relative aspect-square w-[280px] overflow-hidden'>
+            <Image
+              src='/pokeball_unassembled.jpg'
+              alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+              fill
+              className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
+              priority
+            />
+          </div>
+        </div>
 
         <PatternSupplyList supplies={supplies} />
         <PatternTechniquesList techniques={techniques} />
