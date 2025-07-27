@@ -79,12 +79,12 @@ export default function Pokeball() {
         />
 
         <div className='my-8 flex justify-center'>
-          <div className='relative aspect-square w-[280px] overflow-hidden'>
+          <div className='relative h-[500px] w-[300px] overflow-hidden'>
             <Image
               src='/pokeball_not_started.jpg'
               alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
               fill
-              className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
+              className='rounded-lg object-cover shadow-md hover:shadow-lg transition-all duration-300'
               priority
             />
           </div>
