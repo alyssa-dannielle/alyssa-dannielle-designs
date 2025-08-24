@@ -15,7 +15,7 @@ interface PatternNavigationProps {
 
 const PATTERNS = [
   { name: 'Drink Koozie', href: '/patterns/koozie' },
-  { name: 'Pokéball', href: '/patterns/pokéball' },
+  { name: 'Pokéball', href: '/patterns/pokeball' },
   { name: 'Axolotl', href: '/patterns/axolotl' },
 ];
 
