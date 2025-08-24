@@ -50,7 +50,7 @@ export default function Pokeball() {
     'Half double crochet - hdc',
     'Half double crochet increase - hdcInc (2 hdc in 1 stitch)',
     'Join (slst in first stitch of round)',
-    'Special stitch - ss (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
+    'Cap stitch - cs (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
   ];
 
   return (
@@ -106,7 +106,7 @@ export default function Pokeball() {
             stitchCount='8'
           />
           <PatternStep
-            text='Work 2 ss in each stitch around to end, join'
+            text='Work 2 cs in each stitch around to end, join'
             stitchCount='16'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
@@ -147,7 +147,7 @@ export default function Pokeball() {
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 cs in each stitch around to end, join'
             stitchCount='40'
           />
           <PatternStep text='Invisible finish' />
@@ -184,7 +184,7 @@ export default function Pokeball() {
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 cs in each stitch around to end, join'
             stitchCount='40'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
