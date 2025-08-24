@@ -1,5 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { PatternLayout } from '../../components/pattern/layout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { PatternSchema } from '../../components/pattern/metadata';
 import {
   PatternIntroduction,
@@ -18,7 +20,7 @@ export const metadata = {
     "Free crochet pattern for a Pokéball. Perfect for crocheters who gotta catch 'em all!",
 };
 
-export default function Pokeball() {
+export default function pokéball() {
   const patternSections = [
     { label: 'Supplies Used', anchor: 'supplies' },
     { label: 'Stitches & Techniques', anchor: 'stitches' },
@@ -50,7 +52,10 @@ export default function Pokeball() {
     'Half double crochet - hdc',
     'Half double crochet increase - hdcInc (2 hdc in 1 stitch)',
     'Join (slst in first stitch of round)',
-    'Special stitch - ss (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
+    {
+      text: 'Cap stitch - cs (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
+      videoUrl: 'https://www.youtube.com/watch?v=NzZgiAE71E4',
+    },
   ];
 
   return (
@@ -81,8 +86,8 @@ export default function Pokeball() {
         <div className='my-8 flex justify-center'>
           <div className='relative h-[500px] w-[300px] overflow-hidden'>
             <Image
-              src='/pokeball_not_started.jpg'
-              alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+              src='/pokéball_not_started.jpg'
+              alt='An unfinished crochet pokéball. All the pieces are there, but they have not been sewn together'
               fill
               className='rounded-lg object-cover shadow-md hover:shadow-lg transition-all duration-300'
               priority
@@ -97,7 +102,7 @@ export default function Pokeball() {
 
         <PatternStepSection id='button' heading='Button'>
           <PatternImage
-            src='/pokeball_button.jpg'
+            src='/pokéball_button.jpg'
             alt='Close up of the crocheted Pokéball button piece'
             isCircular
           />
@@ -106,7 +111,7 @@ export default function Pokeball() {
             stitchCount='8'
           />
           <PatternStep
-            text='Work 2 ss in each stitch around to end, join'
+            text='Work 2 cs in each stitch around to end, join'
             stitchCount='16'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
@@ -118,7 +123,7 @@ export default function Pokeball() {
 
         <PatternStepSection id='top' heading='Top'>
           <PatternImage
-            src='/pokeball_top.jpg'
+            src='/pokéball_top.jpg'
             alt='Close up of the crocheted Pokéball top piece'
             isCircular
           />
@@ -147,15 +152,15 @@ export default function Pokeball() {
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 cs in each stitch around to end, join'
             stitchCount='40'
           />
-          <PatternStep text='Invisible finish and leave a long black tail for sewing' />
+          <PatternStep text='Invisible finish' />
         </PatternStepSection>
 
         <PatternStepSection id='bottom' heading='Bottom'>
           <PatternImage
-            src='/pokeball_bottom.jpg'
+            src='/pokéball_bottom.jpg'
             alt='Close up of the crocheted Pokéball bottom piece'
             isCircular
           />
@@ -184,7 +189,7 @@ export default function Pokeball() {
             stitchCount='40'
           />
           <PatternStep
-            text='Work 1 ss in each stitch around to end, join'
+            text='Work 1 cs in each stitch around to end, join'
             stitchCount='40'
           />
           <PatternStep text='Invisible finish and leave a long black tail for sewing' />
@@ -194,19 +199,19 @@ export default function Pokeball() {
           <div className='my-8 flex justify-center'>
             <div className='relative aspect-square w-[280px] overflow-hidden'>
               <Image
-                src='/pokeball_unassembled.jpg'
-                alt='An unfinished crochet pokeball. All the pieces are there, but they have not been sewn together'
+                src='/pokéball_unassembled.jpg'
+                alt='An unfinished crochet pokéball. All the pieces are there, but they have not been sewn together'
                 fill
                 className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
                 priority
               />
             </div>
           </div>
-          <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
-          <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
-          <PatternStep text='After stuffing, finish stitching pokeball closed' />
-          <PatternStep text='With any tail, stitch button on to pokeball directly between top and bottom' />
-          <PatternStep text='Hide all tails inside the pokeball' />
+          <PatternStep text='Thread tapestry needle with tail from bottom of pokéball' />
+          <PatternStep text='Stitch top and bottom of pokéball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
+          <PatternStep text='After stuffing, finish stitching pokéball closed' />
+          <PatternStep text='With any tail, stitch button on to pokéball directly between top and bottom' />
+          <PatternStep text='Hide all tails inside the pokéball' />
         </PatternStepSection>
       </PatternLayout>
       <GoogleAnalytics gaId='G-3PNFXR7ZY5' />
