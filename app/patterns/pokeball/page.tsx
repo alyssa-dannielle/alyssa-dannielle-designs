@@ -202,7 +202,7 @@ export default function Pokeball() {
               />
             </div>
           </div>
-          <PatternStep text='Thread tapestry needle with tail from either top or bottom of pokeball' />
+          <PatternStep text='Thread tapestry needle with tail from bottom of pokeball' />
           <PatternStep text='Stitch top and bottom of pokeball together leaving a small opening to fill with polyfil and any other secrets or surprises' />
           <PatternStep text='After stuffing, finish stitching pokeball closed' />
           <PatternStep text='With any tail, stitch button on to pokeball directly between top and bottom' />
