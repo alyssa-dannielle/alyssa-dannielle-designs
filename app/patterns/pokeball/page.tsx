@@ -1,5 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { PatternLayout } from '../../components/pattern/layout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { PatternSchema } from '../../components/pattern/metadata';
 import {
   PatternIntroduction,
@@ -50,7 +52,10 @@ export default function Pokeball() {
     'Half double crochet - hdc',
     'Half double crochet increase - hdcInc (2 hdc in 1 stitch)',
     'Join (slst in first stitch of round)',
-    'Cap stitch - cs (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
+    {
+      text: 'Cap stitch - cs (Ch 1 w/black, yo w/main color, insert hook, yo & pull up main color, yo w/black, & pull through)',
+      videoUrl: 'https://www.youtube.com/watch?v=NzZgiAE71E4',
+    },
   ];
 
   return (
