@@ -9,7 +9,7 @@ export default function Home() {
       <HeroSection />
       <div className='flex flex-col items-center gap-4 w-full mt-8 mb-8'>
         <Button link='/patterns/koozie'> Drink Koozie Pattern</Button>
-        <Button link='/patterns/pokeball'>Pokéball Pattern</Button>
+        <Button link='/patterns/pokéball'>Pokéball Pattern</Button>
         <Button link='/patterns/axolotl'>Axolotl Pattern</Button>
       </div>
       <Footer />
