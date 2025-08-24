@@ -150,7 +150,7 @@ export default function Pokeball() {
             text='Work 1 ss in each stitch around to end, join'
             stitchCount='40'
           />
-          <PatternStep text='Invisible finish and leave a long black tail for sewing' />
+          <PatternStep text='Invisible finish' />
         </PatternStepSection>
 
         <PatternStepSection id='bottom' heading='Bottom'>
