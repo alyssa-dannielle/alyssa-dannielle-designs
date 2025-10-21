@@ -8,7 +8,7 @@ const HeroSection = (props: Props) => {
     <section className='flex flex-col items-center w-full mt-6'>
       <div className='relative w-full max-w-4xl aspect-[16/9]'>
         <Image
-          src='/kits_hero.jpg'
+          src='/axolotl_hero.jpg'
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw'
           className='object-contain'
