@@ -151,7 +151,7 @@ const Header = (props: Props) => {
         <button onClick={toggleDarkMode}>
           <FontAwesomeIcon
             icon={darkMode ? faSun : faMoon}
-            className='w-3.5 h-3.5 sm:w-5 sm:h-5'
+            className='w-3.5 h-3.5 sm:w-5 sm:h-5 hover:bg-yellow'
           />
         </button>
       </div>

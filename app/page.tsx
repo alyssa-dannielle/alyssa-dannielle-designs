@@ -12,7 +12,7 @@ export default function Home() {
           <h2 className='tracking-tight text-2xl sm:text-4xl md:text-6xl mt-8 text-center'>
             Crochet Patterns
           </h2>
-          <div className='flex sm:flex-col-1 md:flex-col-3 gap-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4 place-items-center mt-8'>
             <Button link='/patterns/koozie'> Drink Koozie</Button>
             <Button link='/patterns/pokeball'>Pokéball</Button>
             <Button link='/patterns/axolotl'>Axolotl</Button>
