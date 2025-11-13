@@ -73,9 +73,9 @@ const Header = (props: Props) => {
   };
 
   return (
-    <div className='border-b flex items-center justify-between'>
+    <div className='sticky top-0 z-40 border-b flex items-center justify-between p-3 bg-white dark:bg-gray-900'>
       {/* Left side with home link and Instagram */}
-      <div className='p-5 flex items-center gap-4'>
+      <div className='flex items-center gap-4'>
         <Link href='/'>AlyssaDannielle.Design</Link>
         <button className='group'>
           <Link
@@ -106,7 +106,7 @@ const Header = (props: Props) => {
       </div>
 
       {/* Center/Right side with menu and dark mode */}
-      <div className='flex items-center gap-4 p-5'>
+      <div className='flex items-center gap-4'>
         {/* Patterns Menu */}
         <div className='relative patterns-menu'>
           {/* Mobile Menu Button */}
@@ -151,7 +151,7 @@ const Header = (props: Props) => {
         <button onClick={toggleDarkMode}>
           <FontAwesomeIcon
             icon={darkMode ? faSun : faMoon}
-            className='w-3.5 h-3.5 sm:w-5 sm:h-5'
+            className='w-3.5 h-3.5 sm:w-5 sm:h-5 hover:bg-yellow'
           />
         </button>
       </div>
