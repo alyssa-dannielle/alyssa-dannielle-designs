@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function DrinkKoozie() {
   const patternSections = [
-    { label: 'Supplies Needed', anchor: 'supplies' },
+    { label: 'Supplies Used', anchor: 'supplies' },
     { label: 'Stitches & Techniques', anchor: 'stitches' },
     { label: 'Instructions', anchor: 'instructions' },
     { label: 'Base', anchor: 'base' },

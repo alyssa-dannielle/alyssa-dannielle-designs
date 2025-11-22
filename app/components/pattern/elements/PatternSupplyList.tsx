@@ -14,7 +14,7 @@ export default function PatternSupplyList({
         className='text-xl sm:text-2xl md:text-3xl font-semibold mt-4 mb-4 flex justify-between items-center'
       >
         <span className='flex items-center gap-2'>
-          Supplies Needed:
+          Supplies Used:
           <BackToTopButton />
         </span>
       </h2>
