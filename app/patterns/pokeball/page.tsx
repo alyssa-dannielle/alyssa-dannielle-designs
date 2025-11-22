@@ -13,6 +13,7 @@ import {
   PatternImage,
 } from '../../components/pattern/elements';
 import Image from 'next/image';
+import PurchaseButton from '@/app/components/common/PurchaseButton';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
