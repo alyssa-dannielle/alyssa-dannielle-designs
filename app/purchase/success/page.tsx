@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 
 const prisma = new PrismaClient();
 
+export const dynamic = 'force-dynamic';
+
 export default async function SuccessPage({
   searchParams,
 }: {
@@ -50,7 +52,9 @@ export default async function SuccessPage({
         </p>
 
         <div className='mb-6 rounded-lg bg-white p-4'>
-          <h2 className='mb-2 text-xl font-semibold'>{purchase.pattern.title}</h2>
+          <h2 className='mb-2 text-xl font-semibold'>
+            {purchase.pattern.title}
+          </h2>
           <p className='mb-4 text-sm text-gray-600'>
             Sent to: {purchase.customerEmail}
           </p>
@@ -63,7 +67,10 @@ export default async function SuccessPage({
           </a>
 
           <div className='mt-4 text-sm text-gray-600'>
-            <p>• Downloads remaining: {downloadsRemaining} of {purchase.maxDownloads}</p>
+            <p>
+              • Downloads remaining: {downloadsRemaining} of{' '}
+              {purchase.maxDownloads}
+            </p>
             <p>• Link expires: {expiresAt}</p>
           </div>
         </div>
