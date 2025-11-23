@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${request.headers.get('origin')}/patterns/${patternSlug}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${request.headers.get('origin')}/purchase/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${request.headers.get('origin')}/patterns/${patternSlug}`,
       customer_email: undefined, // Let customer enter email
       metadata: {
