@@ -84,6 +84,12 @@ export default function pokéball() {
           introText='Hi and thanks for checking out my Pokéball crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
         />
 
+        <PurchaseButton
+          patternSlug="pokeball"
+          price={500}
+          title="Pokéball Crochet Pattern"
+        />
+
         <div className='my-8 flex justify-center'>
           <div className='relative h-[500px] w-[300px] overflow-hidden'>
             <Image
