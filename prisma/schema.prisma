@@ -13,18 +13,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+model Pattern {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  title       String
+  description String?
+  price       Int        // Price in cents (e.g., 500 = $5.00)
+  pdfUrl      String     // Path to PDF file
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  purchases   Purchase[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model Purchase {
+  id                String   @id @default(cuid())
+  patternId         String
+  pattern           Pattern  @relation(fields: [patternId], references: [id])
+  customerEmail     String
+  stripeSessionId   String   @unique
+  status            String   // 'pending', 'completed', 'expired'
+  downloadCount     Int      @default(0)
+  maxDownloads      Int      @default(5)
+  expiresAt         DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([customerEmail])
+  @@index([stripeSessionId])
 }

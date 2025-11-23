@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -18,11 +18,13 @@
     "@heroicons/react": "^2.2.0",
     "@next/third-parties": "^15.3.0",
     "@prisma/client": "^5.10.2",
+    "@stripe/stripe-js": "^8.5.2",
     "next": "^14.0.4",
     "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-schemaorg": "^2.0.0"
+    "react-schemaorg": "^2.0.0",
+    "stripe": "^20.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

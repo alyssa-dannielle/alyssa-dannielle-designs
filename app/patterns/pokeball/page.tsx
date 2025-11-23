@@ -13,6 +13,7 @@ import {
   PatternImage,
 } from '../../components/pattern/elements';
 import Image from 'next/image';
+import PurchaseButton from '@/app/components/common/PurchaseButton';
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -81,6 +82,12 @@ export default function pokéball() {
           author='Alyssa Dannielle'
           formLink='https://docs.google.com/forms/d/e/1FAIpQLSeIeBSmj8wTg811x8V7tk9ork0neYhv20DQ7Zb5glu1KjkKqg/viewform?usp=preview'
           introText='Hi and thanks for checking out my Pokéball crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
+        />
+
+        <PurchaseButton
+          patternSlug="pokeball"
+          price={500}
+          title="Pokéball Crochet Pattern"
         />
 
         <div className='my-8 flex justify-center'>
