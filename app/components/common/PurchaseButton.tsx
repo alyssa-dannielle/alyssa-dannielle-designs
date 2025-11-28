@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import StyledButton from './StyledButton';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
@@ -54,28 +55,21 @@ export default function PurchaseButton({
   };
 
   return (
-    <div className='my-8 rounded-lg border border-gray-200 bg-gray-50 p-6'>
-      {/* <h3 className='mb-2 text-xl font-semibold'>
-        Get the one-page Printerliest version PDF
-      </h3> */}
-      <p className='mb-4 text-gray-600'>
-        Get the one-page Printerliest PDF version of this pattern for just{' '}
+    <div className='my-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6'>
+      <p className='mb-4 text-gray-600 dark:text-gray-300 text-center'>
+        Get the one-page printer-friendly PDF version of this pattern for just{' '}
         <span className='font-semibold'>${(price / 100).toFixed(2)}</span>
       </p>
 
       {error && (
-        <div className='mb-4 rounded bg-red-50 p-3 text-sm text-red-600'>
+        <div className='mb-4 rounded bg-red-50 dark:bg-red-900/30 p-3 text-sm text-red-600 dark:text-red-400'>
           {error}
         </div>
       )}
 
-      <button
-        onClick={handlePurchase}
-        disabled={loading}
-        className='w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50'
-      >
+      <StyledButton onClick={handlePurchase} disabled={loading} fullWidth>
         {loading ? 'Loading...' : `Purchase PDF - $${(price / 100).toFixed(2)}`}
-      </button>
+      </StyledButton>
     </div>
   );
 }
