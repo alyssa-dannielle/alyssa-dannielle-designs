@@ -5,13 +5,15 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.pattern.upsert({
     where: { slug: 'pokeball' },
-    update: {},
+    update: {
+      price: 199, // $1.99 - UPDATE existing records
+    },
     create: {
       slug: 'pokeball',
       title: 'Pokéball Crochet Pattern',
       description:
         "Free crochet pattern for a Pokéball. Perfect for crocheters who gotta catch 'em all!",
-      price: 500, // $5.00
+      price: 199, // $1.99
       pdfUrl: '/pdfs/pokeball-pattern.pdf',
     },
   });
