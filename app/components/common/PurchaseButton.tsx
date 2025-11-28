@@ -57,7 +57,7 @@ export default function PurchaseButton({
   return (
     <div className='my-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6'>
       <p className='mb-4 text-gray-600 dark:text-gray-300 text-center'>
-        Get the one-page printer-friendly PDF version of this pattern for just{' '}
+        Get the one-page printerliest PDF version of this pattern for just{' '}
         <span className='font-semibold'>${(price / 100).toFixed(2)}</span>
       </p>
 
