@@ -14,6 +14,9 @@ import {
 } from '../../components/pattern/elements';
 import Image from 'next/image';
 import PurchaseButton from '@/app/components/common/PurchaseButton';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export const metadata = {
   title: 'Pokéball Crochet Pattern',
@@ -21,7 +24,12 @@ export const metadata = {
     "Free crochet pattern for a Pokéball. Perfect for crocheters who gotta catch 'em all!",
 };
 
-export default function pokéball() {
+export default async function pokéball() {
+  // Fetch pattern from database
+  const pattern = await prisma.pattern.findUnique({
+    where: { slug: 'pokeball' },
+  });
+
   const patternSections = [
     { label: 'Supplies Used', anchor: 'supplies' },
     { label: 'Stitches & Techniques', anchor: 'stitches' },
@@ -84,11 +92,13 @@ export default function pokéball() {
           introText='Hi and thanks for checking out my Pokéball crochet pattern! Currently this pattern contains written instructions only. Keep checking back while I continue to add to this pattern based on tester feedback. To leave your feedback, please fill out'
         />
 
-        <PurchaseButton
-          patternSlug="pokeball"
-          price={500}
-          title="Pokéball Crochet Pattern"
-        />
+        {pattern && (
+          <PurchaseButton
+            patternSlug='pokeball'
+            price={pattern.price}
+            title={pattern.title}
+          />
+        )}
 
         <div className='my-8 flex justify-center'>
           <div className='relative h-[500px] w-[300px] overflow-hidden'>
