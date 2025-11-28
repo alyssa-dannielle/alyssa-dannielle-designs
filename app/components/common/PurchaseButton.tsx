@@ -55,11 +55,11 @@ export default function PurchaseButton({
 
   return (
     <div className='my-8 rounded-lg border border-gray-200 bg-gray-50 p-6'>
-      <h3 className='mb-2 text-xl font-semibold'>
-        Get the Printer-Friendly PDF
-      </h3>
+      {/* <h3 className='mb-2 text-xl font-semibold'>
+        Get the one-page Printerliest version PDF
+      </h3> */}
       <p className='mb-4 text-gray-600'>
-        Download a beautifully formatted PDF version of this pattern for just{' '}
+        Get the one-page Printerliest PDF version of this pattern for just{' '}
         <span className='font-semibold'>${(price / 100).toFixed(2)}</span>
       </p>
 
