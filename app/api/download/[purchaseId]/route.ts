@@ -25,14 +25,6 @@ export async function GET(
       );
     }
 
-    // Check if expired
-    if (new Date() > purchase.expiresAt) {
-      return NextResponse.json(
-        { error: 'Download link has expired' },
-        { status: 410 },
-      );
-    }
-
     // Check download limit
     if (purchase.downloadCount >= purchase.maxDownloads) {
       return NextResponse.json(

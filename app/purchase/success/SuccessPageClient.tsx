@@ -7,7 +7,6 @@ interface Purchase {
   customerEmail: string;
   downloadCount: number;
   maxDownloads: number;
-  expiresAt: Date;
   pattern: {
     title: string;
   };
@@ -65,7 +64,6 @@ export default function SuccessPageClient({
   }
 
   const downloadsRemaining = purchase.maxDownloads - purchase.downloadCount;
-  const expiresAt = new Date(purchase.expiresAt).toLocaleDateString();
   const downloadUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://alyssadannielle.design'}/api/download/${purchase.id}`;
 
   return (
@@ -96,19 +94,13 @@ export default function SuccessPageClient({
 
           <CopyLinkButton url={downloadUrl} />
 
-          <div className='mt-6 space-y-2 text-sm text-gray-600 dark:text-gray-400'>
+          <div className='mt-6 text-sm text-gray-600 dark:text-gray-400'>
             <p>
               • Downloads remaining:{' '}
               <span className='font-semibold text-gray-800 dark:text-gray-200'>
                 {downloadsRemaining}
               </span>{' '}
               of {purchase.maxDownloads}
-            </p>
-            <p>
-              • Link expires:{' '}
-              <span className='font-semibold text-gray-800 dark:text-gray-200'>
-                {expiresAt}
-              </span>
             </p>
           </div>
         </div>
@@ -120,7 +112,6 @@ export default function SuccessPageClient({
             <li>
               You can download this pattern up to {purchase.maxDownloads} times
             </li>
-            <li>The download link expires on {expiresAt}</li>
             <li>
               If you lose access, contact support with your order confirmation
               email
