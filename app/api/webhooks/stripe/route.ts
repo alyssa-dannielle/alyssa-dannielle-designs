@@ -34,16 +34,12 @@ export async function POST(request: NextRequest) {
       const session = event.data.object as Stripe.Checkout.Session;
 
       // Create purchase record
-      const expiresAt = new Date();
-      expiresAt.setDate(expiresAt.getDate() + 30); // 30 days from now
-
       await prisma.purchase.create({
         data: {
           patternId: session.metadata!.patternId,
           customerEmail: session.customer_details!.email!,
           stripeSessionId: session.id,
           status: 'completed',
-          expiresAt,
         },
       });
 
