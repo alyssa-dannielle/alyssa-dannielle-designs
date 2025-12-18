@@ -97,9 +97,6 @@ export default function SuccessPageClient({
           <h2 className='mb-2 text-xl font-semibold dark:text-white'>
             {initialPurchase.pattern.title}
           </h2>
-          <p className='mb-4 text-sm text-gray-600 dark:text-gray-400'>
-            Confirmation sent to: {initialPurchase.customerEmail}
-          </p>
 
           <a
             href={`/api/download/${initialPurchase.id}`}
