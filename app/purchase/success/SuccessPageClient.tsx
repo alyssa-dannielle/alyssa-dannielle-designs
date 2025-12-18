@@ -85,14 +85,20 @@ export default function SuccessPageClient({
 
   const downloadsRemaining = initialPurchase.maxDownloads - downloadCount;
   const downloadUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://alyssadannielle.design'}/api/download/${initialPurchase.id}`;
+  const hasDownloadsRemaining = downloadsRemaining > 0;
 
   const handleDownload = async () => {
-    if (isDownloading) return;
+    if (isDownloading || !hasDownloadsRemaining) return;
 
     setIsDownloading(true);
     try {
       // Trigger the download
       const response = await fetch(`/api/download/${initialPurchase.id}`);
+
+      if (!response.ok) {
+        throw new Error('Download failed');
+      }
+
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -128,20 +134,43 @@ export default function SuccessPageClient({
             {initialPurchase.pattern.title}
           </h2>
 
-          <button
-            onClick={handleDownload}
-            disabled={isDownloading}
-            className='w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-          >
-            {isDownloading ? '⏳ Downloading...' : '📥 Download PDF Now'}
-          </button>
+          {hasDownloadsRemaining ? (
+            <>
+              <button
+                onClick={handleDownload}
+                disabled={isDownloading}
+                className='w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              >
+                {isDownloading ? '⏳ Downloading...' : '📥 Download PDF Now'}
+              </button>
 
-          <CopyLinkButton url={downloadUrl} />
+              <CopyLinkButton url={downloadUrl} />
+            </>
+          ) : (
+            <div className='rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 p-4'>
+              <p className='text-red-800 dark:text-red-200 font-semibold mb-2'>
+                ⚠️ Download Limit Reached
+              </p>
+              <p className='text-red-700 dark:text-red-300 text-sm'>
+                You've used all {initialPurchase.maxDownloads} downloads for
+                this pattern. If you need additional access, please contact
+                support at{' '}
+                <a
+                  href='mailto:support@alyssadannielle.design'
+                  className='underline hover:text-red-900 dark:hover:text-red-100'
+                >
+                  support@alyssadannielle.design
+                </a>
+              </p>
+            </div>
+          )}
 
           <div className='mt-6 text-sm text-gray-600 dark:text-gray-400'>
             <p>
               • Downloads remaining:{' '}
-              <span className='font-semibold text-gray-800 dark:text-gray-200'>
+              <span
+                className={`font-semibold ${hasDownloadsRemaining ? 'text-gray-800 dark:text-gray-200' : 'text-red-600 dark:text-red-400'}`}
+              >
                 {downloadsRemaining}
               </span>{' '}
               of {initialPurchase.maxDownloads}
