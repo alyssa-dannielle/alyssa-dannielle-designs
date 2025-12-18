@@ -163,7 +163,7 @@ export default function SuccessPageClient({
                   >
                     contact us
                   </button>{' '}
-                  with your order confirmation email.
+                  with your order email.
                 </p>
               </div>
             )}
@@ -197,7 +197,7 @@ export default function SuccessPageClient({
                 >
                   contact us
                 </button>{' '}
-                with your order confirmation email
+                with your order email
               </li>
             </ul>
           </div>
