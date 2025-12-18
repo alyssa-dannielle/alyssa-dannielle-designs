@@ -155,8 +155,9 @@ export default function SuccessPageClient({
                   ⚠️ Download Limit Reached
                 </p>
                 <p className='text-red-700 dark:text-red-300 text-sm'>
-                  You've used all {initialPurchase.maxDownloads} downloads for
-                  this pattern. If you need additional access, please{' '}
+                  You`&apos;`ve used all {initialPurchase.maxDownloads}{' '}
+                  downloads for this pattern. If you need additional access,
+                  please{' '}
                   <button
                     onClick={() => setIsContactFormOpen(true)}
                     className='underline hover:text-red-900 dark:hover:text-red-100 font-semibold'
