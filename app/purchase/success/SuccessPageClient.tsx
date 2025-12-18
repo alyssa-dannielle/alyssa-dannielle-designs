@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Purchase {
   id: string;
@@ -36,11 +37,27 @@ function CopyLinkButton({ url }: { url: string }) {
 }
 
 export default function SuccessPageClient({
-  purchase,
+  purchase: initialPurchase,
 }: {
   purchase: Purchase | null;
 }) {
-  if (!purchase) {
+  const router = useRouter();
+  const [retryCount, setRetryCount] = useState(0);
+  const maxRetries = 10;
+
+  // Auto-refresh if no purchase yet
+  useEffect(() => {
+    if (!initialPurchase && retryCount < maxRetries) {
+      const timer = setTimeout(() => {
+        router.refresh();
+        setRetryCount((prev) => prev + 1);
+      }, 2000); // Check every 2 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [initialPurchase, retryCount, router]);
+
+  if (!initialPurchase) {
     return (
       <div className='mx-auto max-w-2xl px-4 py-16'>
         <div className='rounded-lg border border-yellow-200 dark:border-yellow-700 bg-yellow-50 dark:bg-yellow-900/30 p-6'>
@@ -48,23 +65,23 @@ export default function SuccessPageClient({
             Payment Processing
           </h1>
           <p className='text-yellow-700 dark:text-yellow-300 mb-4'>
-            Your payment is being processed. This usually takes just a few
-            seconds. Please refresh this page in a moment to access your
-            download.
+            Your payment is being processed. This page will automatically
+            refresh when ready...
           </p>
-          <button
-            onClick={() => window.location.reload()}
-            className='rounded-lg bg-yellow-600 dark:bg-yellow-500 px-6 py-2 font-semibold text-white hover:bg-yellow-700 dark:hover:bg-yellow-600 transition-colors'
-          >
-            Refresh Page
-          </button>
+          <div className='flex items-center justify-center'>
+            <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-800 dark:border-yellow-200'></div>
+          </div>
+          <p className='text-sm text-yellow-600 dark:text-yellow-400 mt-4 text-center'>
+            Checking... (Attempt {retryCount + 1} of {maxRetries})
+          </p>
         </div>
       </div>
     );
   }
 
-  const downloadsRemaining = purchase.maxDownloads - purchase.downloadCount;
-  const downloadUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://alyssadannielle.design'}/api/download/${purchase.id}`;
+  const downloadsRemaining =
+    initialPurchase.maxDownloads - initialPurchase.downloadCount;
+  const downloadUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://alyssadannielle.design'}/api/download/${initialPurchase.id}`;
 
   return (
     <div className='mx-auto max-w-2xl px-4 py-16'>
@@ -78,14 +95,14 @@ export default function SuccessPageClient({
 
         <div className='mb-6 rounded-lg bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700'>
           <h2 className='mb-2 text-xl font-semibold dark:text-white'>
-            {purchase.pattern.title}
+            {initialPurchase.pattern.title}
           </h2>
           <p className='mb-4 text-sm text-gray-600 dark:text-gray-400'>
-            Confirmation sent to: {purchase.customerEmail}
+            Confirmation sent to: {initialPurchase.customerEmail}
           </p>
 
           <a
-            href={`/api/download/${purchase.id}`}
+            href={`/api/download/${initialPurchase.id}`}
             download
             className='inline-block w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200'
           >
@@ -100,7 +117,7 @@ export default function SuccessPageClient({
               <span className='font-semibold text-gray-800 dark:text-gray-200'>
                 {downloadsRemaining}
               </span>{' '}
-              of {purchase.maxDownloads}
+              of {initialPurchase.maxDownloads}
             </p>
           </div>
         </div>
@@ -110,7 +127,8 @@ export default function SuccessPageClient({
           <ul className='list-disc list-inside space-y-1 ml-2'>
             <li>Bookmark this page or save the download link</li>
             <li>
-              You can download this pattern up to {purchase.maxDownloads} times
+              You can download this pattern up to {initialPurchase.maxDownloads}{' '}
+              times
             </li>
             <li>
               If you lose access, contact support with your order confirmation
