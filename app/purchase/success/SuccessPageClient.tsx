@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import ContactForm from '../../components/common/ContactForm';
 
 interface Purchase {
   id: string;
@@ -47,6 +48,7 @@ export default function SuccessPageClient({
     initialPurchase?.downloadCount ?? 0,
   );
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const maxRetries = 10;
 
   // Auto-refresh if no purchase yet
@@ -120,79 +122,92 @@ export default function SuccessPageClient({
   };
 
   return (
-    <div className='mx-auto max-w-2xl px-4 py-16'>
-      <div className='rounded-lg border border-green-200 dark:border-green-700 bg-green-50 dark:bg-green-900/30 p-6'>
-        <h1 className='mb-4 text-3xl font-bold text-green-800 dark:text-green-200'>
-          🎉 Thank You for Your Purchase!
-        </h1>
-        <p className='mb-6 text-green-700 dark:text-green-300'>
-          Your payment was successful. Your download is ready!
-        </p>
+    <>
+      <div className='mx-auto max-w-2xl px-4 py-16'>
+        <div className='rounded-lg border border-green-200 dark:border-green-700 bg-green-50 dark:bg-green-900/30 p-6'>
+          <h1 className='mb-4 text-3xl font-bold text-green-800 dark:text-green-200'>
+            🎉 Thank You for Your Purchase!
+          </h1>
+          <p className='mb-6 text-green-700 dark:text-green-300'>
+            Your payment was successful. Your download is ready!
+          </p>
 
-        <div className='mb-6 rounded-lg bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700'>
-          <h2 className='mb-2 text-xl font-semibold dark:text-white'>
-            {initialPurchase.pattern.title}
-          </h2>
+          <div className='mb-6 rounded-lg bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700'>
+            <h2 className='mb-2 text-xl font-semibold dark:text-white'>
+              {initialPurchase.pattern.title}
+            </h2>
 
-          {hasDownloadsRemaining ? (
-            <>
-              <button
-                onClick={handleDownload}
-                disabled={isDownloading}
-                className='w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
-              >
-                {isDownloading ? '⏳ Downloading...' : '📥 Download PDF Now'}
-              </button>
-
-              <CopyLinkButton url={downloadUrl} />
-            </>
-          ) : (
-            <div className='rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 p-4'>
-              <p className='text-red-800 dark:text-red-200 font-semibold mb-2'>
-                ⚠️ Download Limit Reached
-              </p>
-              <p className='text-red-700 dark:text-red-300 text-sm'>
-                You've used all {initialPurchase.maxDownloads} downloads for
-                this pattern. If you need additional access, please contact
-                support at{' '}
-                <a
-                  href='mailto:support@alyssadannielle.design'
-                  className='underline hover:text-red-900 dark:hover:text-red-100'
+            {hasDownloadsRemaining ? (
+              <>
+                <button
+                  onClick={handleDownload}
+                  disabled={isDownloading}
+                  className='w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
                 >
-                  support@alyssadannielle.design
-                </a>
+                  {isDownloading ? '⏳ Downloading...' : '📥 Download PDF Now'}
+                </button>
+
+                <CopyLinkButton url={downloadUrl} />
+              </>
+            ) : (
+              <div className='rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 p-4'>
+                <p className='text-red-800 dark:text-red-200 font-semibold mb-2'>
+                  ⚠️ Download Limit Reached
+                </p>
+                <p className='text-red-700 dark:text-red-300 text-sm'>
+                  You've used all {initialPurchase.maxDownloads} downloads for
+                  this pattern. If you need additional access, please{' '}
+                  <button
+                    onClick={() => setIsContactFormOpen(true)}
+                    className='underline hover:text-red-900 dark:hover:text-red-100 font-semibold'
+                  >
+                    contact us
+                  </button>{' '}
+                  with your order confirmation email.
+                </p>
+              </div>
+            )}
+
+            <div className='mt-6 text-sm text-gray-600 dark:text-gray-400'>
+              <p>
+                • Downloads remaining:{' '}
+                <span
+                  className={`font-semibold ${hasDownloadsRemaining ? 'text-gray-800 dark:text-gray-200' : 'text-red-600 dark:text-red-400'}`}
+                >
+                  {downloadsRemaining}
+                </span>{' '}
+                of {initialPurchase.maxDownloads}
               </p>
             </div>
-          )}
+          </div>
 
-          <div className='mt-6 text-sm text-gray-600 dark:text-gray-400'>
-            <p>
-              • Downloads remaining:{' '}
-              <span
-                className={`font-semibold ${hasDownloadsRemaining ? 'text-gray-800 dark:text-gray-200' : 'text-red-600 dark:text-red-400'}`}
-              >
-                {downloadsRemaining}
-              </span>{' '}
-              of {initialPurchase.maxDownloads}
-            </p>
+          <div className='rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 p-4 text-sm text-blue-800 dark:text-blue-200'>
+            <p className='font-semibold mb-2'>💡 Important:</p>
+            <ul className='list-disc list-inside space-y-1 ml-2'>
+              <li>Bookmark this page or save the download link</li>
+              <li>
+                You can download this pattern up to{' '}
+                {initialPurchase.maxDownloads} times
+              </li>
+              <li>
+                If you lose access,{' '}
+                <button
+                  onClick={() => setIsContactFormOpen(true)}
+                  className='underline hover:text-blue-900 dark:hover:text-blue-100 font-semibold'
+                >
+                  contact us
+                </button>{' '}
+                with your order confirmation email
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div className='rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 p-4 text-sm text-blue-800 dark:text-blue-200'>
-          <p className='font-semibold mb-2'>💡 Important:</p>
-          <ul className='list-disc list-inside space-y-1 ml-2'>
-            <li>Bookmark this page or save the download link</li>
-            <li>
-              You can download this pattern up to {initialPurchase.maxDownloads}{' '}
-              times
-            </li>
-            <li>
-              If you lose access, contact support with your order confirmation
-              email
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
+
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+      />
+    </>
   );
 }
