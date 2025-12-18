@@ -4,7 +4,7 @@
   status = 200
 
 [build]
-  command = "npm run build"
+  command = "npx prisma migrate deploy && npx prisma generate && npm run build"
   publish = ".next"
 
 [[plugins]]
