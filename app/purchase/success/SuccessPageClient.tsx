@@ -43,6 +43,10 @@ export default function SuccessPageClient({
 }) {
   const router = useRouter();
   const [retryCount, setRetryCount] = useState(0);
+  const [downloadCount, setDownloadCount] = useState(
+    initialPurchase?.downloadCount ?? 0,
+  );
+  const [isDownloading, setIsDownloading] = useState(false);
   const maxRetries = 10;
 
   // Auto-refresh if no purchase yet
@@ -79,9 +83,35 @@ export default function SuccessPageClient({
     );
   }
 
-  const downloadsRemaining =
-    initialPurchase.maxDownloads - initialPurchase.downloadCount;
+  const downloadsRemaining = initialPurchase.maxDownloads - downloadCount;
   const downloadUrl = `${typeof window !== 'undefined' ? window.location.origin : 'https://alyssadannielle.design'}/api/download/${initialPurchase.id}`;
+
+  const handleDownload = async () => {
+    if (isDownloading) return;
+
+    setIsDownloading(true);
+    try {
+      // Trigger the download
+      const response = await fetch(`/api/download/${initialPurchase.id}`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${initialPurchase.pattern.title}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+
+      // Update the download count immediately
+      setDownloadCount((prev) => prev + 1);
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Download failed. Please try again.');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   return (
     <div className='mx-auto max-w-2xl px-4 py-16'>
@@ -98,13 +128,13 @@ export default function SuccessPageClient({
             {initialPurchase.pattern.title}
           </h2>
 
-          <a
-            href={`/api/download/${initialPurchase.id}`}
-            download
-            className='inline-block w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200'
+          <button
+            onClick={handleDownload}
+            disabled={isDownloading}
+            className='w-full text-center rounded-lg bg-cyan-800 dark:bg-cyan-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-yellow-500 dark:hover:bg-yellow-400 transform hover:scale-105 duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
           >
-            📥 Download PDF Now
-          </a>
+            {isDownloading ? '⏳ Downloading...' : '📥 Download PDF Now'}
+          </button>
 
           <CopyLinkButton url={downloadUrl} />
 
