@@ -13,7 +13,6 @@ export function PatternImage({
   alt,
   width = 280,
   isCircular = false,
-  priority = false,
 }: PatternImageProps) {
   return (
     <div className='my-8 flex justify-center'>
@@ -26,7 +25,8 @@ export function PatternImage({
             object-cover shadow-lg hover:scale-105 transition-transform duration-300
             ${isCircular ? 'rounded-full border-4 border-white/10' : 'rounded-2xl'}
           `}
-          priority={priority}
+          loading='lazy'
+          sizes={`(max-width: 768px) 100vw, ${width}px`}
         />
       </div>
     </div>

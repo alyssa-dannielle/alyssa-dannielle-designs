@@ -108,6 +108,7 @@ export default async function pokéball() {
               fill
               className='rounded-lg object-cover shadow-md hover:shadow-lg transition-all duration-300'
               priority
+              sizes='(max-width: 768px) 100vw, 300px'
             />
           </div>
         </div>
@@ -220,7 +221,8 @@ export default async function pokéball() {
                 alt='An unfinished crochet pokéball. All the pieces are there, but they have not been sewn together'
                 fill
                 className='rounded-2xl object-cover shadow-lg hover:scale-105 transition-transform duration-300'
-                priority
+                loading='lazy'
+                sizes='(max-width: 768px) 100vw, 280px'
               />
             </div>
           </div>
