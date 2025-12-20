@@ -26,7 +26,7 @@ export function PatternImage({
             ${isCircular ? 'rounded-full border-4 border-white/10' : 'rounded-2xl'}
           `}
           loading='lazy'
-          sizes='(max-width: 768px) 100vw, 300px'
+          sizes={`(max-width: 768px) 100vw, ${width}px`}
         />
       </div>
     </div>
