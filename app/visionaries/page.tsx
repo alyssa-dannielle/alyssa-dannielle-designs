@@ -1051,7 +1051,7 @@ export default function VisionariesPage() {
         .join(', ');
 
       return `${blockEnd}\n    ${scopedSelectorGroup} {`;
-    }
+    },
   );
 
   return (
@@ -1061,7 +1061,10 @@ export default function VisionariesPage() {
         rel='stylesheet'
       />
       <style dangerouslySetInnerHTML={{ __html: scopedStyles }} />
-      <div className='visionaries-page' dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <div
+        className='visionaries-page'
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
     </>
   );
 }
