@@ -986,9 +986,7 @@ export default function VisionariesPage() {
         <div class="about-image-col">
           <div class="about-image-frame">
             <div class="about-image-placeholder">
-              <img
-                src=/profilePic.png
-              />
+              <img src="/profilePic.PNG" alt="Profile photo of Alyssa Dannielle" />
             </div>
           </div>
           <span class="about-moss-tag">Fiber Artist</span>
