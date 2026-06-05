@@ -1028,13 +1028,39 @@ export default function VisionariesPage() {
     </footer>
   `;
 
+  const scopedStyles = styles.replace(
+    /(^|})\s*([^@{}][^{}]*)\{/g,
+    (_fullMatch: string, blockEnd: string, selectorGroup: string) => {
+      const scopedSelectorGroup = selectorGroup
+        .split(',')
+        .map((rawSelector: string) => {
+          const selector = rawSelector.trim();
+
+          if (
+            selector.length === 0 ||
+            selector.startsWith('.visionaries-page') ||
+            selector === 'from' ||
+            selector === 'to' ||
+            /^\d+%$/.test(selector)
+          ) {
+            return selector;
+          }
+
+          return `.visionaries-page ${selector}`;
+        })
+        .join(', ');
+
+      return `${blockEnd}\n    ${scopedSelectorGroup} {`;
+    }
+  );
+
   return (
     <>
       <link
         href='https://fonts.googleapis.com/css2?family=Alice&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap'
         rel='stylesheet'
       />
-      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <style dangerouslySetInnerHTML={{ __html: scopedStyles }} />
       <div className='visionaries-page' dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </>
   );

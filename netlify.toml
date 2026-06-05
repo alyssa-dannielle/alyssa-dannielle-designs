@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "https://event.alyssadannielle.design/*"
+  to = "https://alyssadannielle.design/visionaries"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/:pattern"
   to = "/patterns/:pattern"
   status = 200
