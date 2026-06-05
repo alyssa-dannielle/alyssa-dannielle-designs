@@ -987,7 +987,7 @@ export default function VisionariesPage() {
           <div class="about-image-frame">
             <div class="about-image-placeholder">
               <img
-                src="https://assets.cdn.filesafe.space/O9YQjslNqyVu5glDCXe2/media/69fbfb5f9594baa062063a5d.png"
+                src=/profilePic.png
               />
             </div>
           </div>
