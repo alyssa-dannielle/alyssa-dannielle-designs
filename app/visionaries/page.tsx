@@ -11,15 +11,16 @@ export default function VisionariesPage() {
     /* ===========================
      CSS VARIABLES & RESET
   =========================== */
-    *,
-    *::before,
-    *::after {
+    .visionaries-page,
+    .visionaries-page *,
+    .visionaries-page *::before,
+    .visionaries-page *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    :root {
+    .visionaries-page {
       --teal: #003135;
       --teal-mid: #004a50;
       --teal-light: #005f66;
@@ -36,13 +37,7 @@ export default function VisionariesPage() {
       --off-white: #fdf9f4;
       --text-dark: #1a1a1a;
       --text-mid: #3a3330;
-    }
-
-    html {
       scroll-behavior: smooth;
-    }
-
-    body {
       font-family: 'Montserrat', sans-serif;
       background-color: var(--off-white);
       color: var(--text-dark);
@@ -986,9 +981,7 @@ export default function VisionariesPage() {
         <div class="about-image-col">
           <div class="about-image-frame">
             <div class="about-image-placeholder">
-              <img
-                src=/profilePic.png
-              />
+              <img src="/profilePic.PNG" alt="Profile photo of Alyssa Dannielle" />
             </div>
           </div>
           <span class="about-moss-tag">Fiber Artist</span>
@@ -1035,14 +1028,43 @@ export default function VisionariesPage() {
     </footer>
   `;
 
+  const scopedStyles = styles.replace(
+    /(^|})\s*([^@{}][^{}]*)\{/g,
+    (_fullMatch: string, blockEnd: string, selectorGroup: string) => {
+      const scopedSelectorGroup = selectorGroup
+        .split(',')
+        .map((rawSelector: string) => {
+          const selector = rawSelector.trim();
+
+          if (
+            selector.length === 0 ||
+            selector.startsWith('.visionaries-page') ||
+            selector === 'from' ||
+            selector === 'to' ||
+            /^\d+%$/.test(selector)
+          ) {
+            return selector;
+          }
+
+          return `.visionaries-page ${selector}`;
+        })
+        .join(', ');
+
+      return `${blockEnd}\n    ${scopedSelectorGroup} {`;
+    },
+  );
+
   return (
     <>
       <link
         href='https://fonts.googleapis.com/css2?family=Alice&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap'
         rel='stylesheet'
       />
-      <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <style dangerouslySetInnerHTML={{ __html: scopedStyles }} />
+      <div
+        className='visionaries-page'
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
     </>
   );
 }
