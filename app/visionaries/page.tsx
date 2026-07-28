@@ -1028,31 +1028,36 @@ export default function VisionariesPage() {
     </footer>
   `;
 
-  const scopedStyles = styles.replace(
-    /(^|})\s*([^@{}][^{}]*)\{/g,
-    (_fullMatch: string, blockEnd: string, selectorGroup: string) => {
-      const scopedSelectorGroup = selectorGroup
-        .split(',')
-        .map((rawSelector: string) => {
-          const selector = rawSelector.trim();
+  const scopedStyles = styles
+    // First, strip out CSS comments to prevent them from interfering
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    // Then scope the selectors
+    .replace(
+      /(^|})\s*([^@{}][^{}]*)\{/g,
+      (_fullMatch: string, blockEnd: string, selectorGroup: string) => {
+        const selector = selectorGroup.trim();
 
-          if (
-            selector.length === 0 ||
-            selector.startsWith('.visionaries-page') ||
-            selector === 'from' ||
-            selector === 'to' ||
-            /^\d+%$/.test(selector)
-          ) {
-            return selector;
-          }
+        // Skip empty selectors, @-rules, and already-scoped selectors
+        if (
+          !selector ||
+          selector.startsWith('@') ||
+          selector.startsWith('.visionaries-page') ||
+          selector === 'from' ||
+          selector === 'to' ||
+          /^\d+%$/.test(selector)
+        ) {
+          return `${blockEnd}\n${selector} {`;
+        }
 
-          return `.visionaries-page ${selector}`;
-        })
-        .join(', ');
+        // Scope each selector in comma-separated groups
+        const scopedSelectorGroup = selector
+          .split(',')
+          .map((s) => `.visionaries-page ${s.trim()}`)
+          .join(', ');
 
-      return `${blockEnd}\n    ${scopedSelectorGroup} {`;
-    },
-  );
+        return `${blockEnd}\n${scopedSelectorGroup} {`;
+      },
+    );
 
   return (
     <>
